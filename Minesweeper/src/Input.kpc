@@ -1,0 +1,47 @@
+*@module Input
+    .exportregion getInput
+    .exportregion getInputDown
+    .exportregion kpad
+
+*inputDownState
+    .defnum previousInputPtr 0x15
+
+*getInput
+    :main
+        setwi $t1 0x1
+        lbext $t1 $t1
+        set $rt $t1
+        jr $ra
+
+*getInputDown
+    .defreg rPrevInputPtr $t1
+    .defreg rPrevInput $t2
+    .defreg rCurrInput $t3
+
+    :main
+        //load previous input
+        setwi rPrevInputPtr inputDownState.previousInputPtr
+        lbram rPrevInput rPrevInputPtr
+
+        //get input
+        setwi rCurrInput 0x1
+        lbext rCurrInput rCurrInput
+        
+        not rPrevInput rPrevInput $zero
+        and rPrevInput rCurrInput rPrevInput
+
+        sbram rCurrInput rPrevInputPtr
+
+        set $rt rPrevInput
+        jr $ra
+
+*kpad
+    .defnum none 0
+    .defnum up 1
+    .defnum right 2
+    .defnum down 4
+    .defnum left 8
+    .defnum a 16
+    .defnum b 32
+    .defnum start 64
+    .defnum select 128

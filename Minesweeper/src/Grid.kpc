@@ -1,0 +1,384 @@
+*@module Grid
+    .exportregion generate
+    .exportregion size
+
+*size
+    .defnum x 16
+    .defnum xNegative -16
+    .defnum xMinusArea -176
+    .defnum xMinusAreaNegative 176
+    .defnum y 12
+
+*tiles
+    .defnum basePtr 0x60
+    .defnum tileStructSize 2
+
+    .defnum tileDataOffset 0
+    .defnum tileBgOffset 1
+
+    .defnum nearbyBombsCountMask 0b00001111
+    .defnum isBombMask 0b01000000
+    .defnum isFlagMask 0b00100000
+    .defnum isRevealedMask 0b00010000
+
+    :getTilePtrById
+        pushw $ra $sp
+        .defreg tileId $a1
+
+        seti $a2 tileStructSize
+        setw $rt $zero
+        jasl Math.mul16.main $ra
+        addwi $rt basePtr
+        //.debugwrite "Wyliczony adres dla tileId={tileId} to {$rt}"
+        popw $ra $sp
+        jr $ra
+
+    
+
+*generate
+    .defreg difficulty $a1
+    .defreg bombsCount $s1
+    .defreg tileIndex $s2
+    .defreg tmp $t1
+    .defreg tilePtr $t2
+    .defreg tileData $t3
+
+    :main
+        pushw $ra $sp
+        pushw $s1 $sp
+        pushw $s2 $sp
+
+        seti bombsCount 8
+
+        // TEST
+        setw tmp $zero
+
+        seti tmp 0
+        pushb tmp $sp
+
+        seti tmp 1
+        pushb tmp $sp
+
+        seti tmp 14
+        pushb tmp $sp
+
+        seti tmp 15
+        pushb tmp $sp
+
+        seti tmp 16
+        pushb tmp $sp
+
+        seti tmp 48
+        pushb tmp $sp
+
+        seti tmp 160
+        pushb tmp $sp
+
+        seti tmp 176
+        pushb tmp $sp
+
+
+        seti tmp 31
+        pushb tmp $sp
+
+        seti tmp 47
+        pushb tmp $sp
+
+        seti tmp 175
+        pushb tmp $sp
+
+        seti tmp 191
+        pushb tmp $sp
+
+        seti tmp 190
+        pushb tmp $sp
+
+        seti tmp 189
+        pushb tmp $sp
+
+        seti tmp 177
+        pushb tmp $sp
+
+        seti tmp 176
+        pushb tmp $sp
+
+        seti tmp 51
+        pushb tmp $sp
+
+        setw tmp $zero
+
+        //END TEST
+
+    :loopCalcBombsCount
+        subi difficulty 1
+        jnfl loopGenBombPos
+        sll bombsCount bombsCount $zero
+        jl loopCalcBombsCount
+
+    :loopGenBombPos // losujemy pozycje do kazdej z bomb
+        setw tileIndex $zero
+
+// PRZYWROCIC -=-=-=
+        // setwi $a1 7
+        // jasl Math.getRandomValue.main $ra
+        // set tileIndex $rt
+
+        // setwi $a1 6
+        // jasl Math.getRandomValue.main $ra
+        // add tileIndex tileIndex $rt
+// -=-=-=-=-=-=-=-
+
+// test -=-=-=
+        popb tileIndex $sp
+// -=-=-=-=
+
+        // sprawdzamy czy pozycja jest już bombą
+        setw $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        pushw $rt $sp // tilePtr na sp
+
+        lbramoi tileData $rt tiles.tileDataOffset 
+        pushb tileData $sp // tileData na sp
+
+        andi tileData tiles.isBombMask
+        jzfl markTileAsBomb
+
+        popb tileData $sp
+        popw tilePtr $sp
+        nop .debugwrite "Nie moge postawic bomby na tile o id: {tileIndex}, bo bomba juz istnieje"
+        jl loopGenBombPos
+
+    :markTileAsBomb
+        popb tileData $sp
+        popw tilePtr $sp
+
+        ori tileData tiles.isBombMask
+        sbramoi tileData tilePtr tiles.tileDataOffset
+        nop .debugwrite "Stawiam bombe na tile o id: {tileIndex}"
+
+    :checkLeftTop
+        pushw tileIndex $sp
+        addwi tileIndex size.xNegative
+        jwnl tileIndex checkTop
+        addwi tileIndex size.x // przywroc oryginalny index
+        
+        setw $a1 tileIndex
+        setwi $a2 size.x
+        jasl Math.div.main $ra
+        setloh tmp $rt
+        add tmp tmp $zero
+        jzfl checkTop
+
+        // calculate left top index
+        subi tileIndex size.x
+        subi tileIndex 1
+
+        set $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        lbramoi tmp $rt tiles.tileDataOffset
+        addi tmp 1
+        sbramoi tmp $rt tiles.tileDataOffset
+
+        seth tmp $zero
+        andi tmp tiles.nearbyBombsCountMask
+        nop
+        nop .debugwrite "Dodaje licznik bomb LeftTop do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+
+    :checkTop
+        popw tileIndex $sp
+        pushw tileIndex $sp
+
+        addwi tileIndex size.xNegative
+        jwnl tileIndex checkRightTop
+        addwi tileIndex size.x // przywroc oryginalny index
+
+         // calculate top index
+        subi tileIndex size.x
+
+        set $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        lbramoi tmp $rt tiles.tileDataOffset
+        addi tmp 1
+        sbramoi tmp $rt tiles.tileDataOffset
+
+        seth tmp $zero
+        andi tmp tiles.nearbyBombsCountMask
+        nop .debugwrite "Dodaje licznik bomb Top do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+
+    :checkRightTop
+        popw tileIndex $sp
+        pushw tileIndex $sp
+
+        addwi tileIndex size.xNegative
+        jwnl tileIndex checkRight
+        addwi tileIndex size.x // przywroc oryginalny index
+
+        setw $a1 tileIndex
+        addi $a1 1
+        setwi $a2 size.x
+        jasl Math.div.main $ra
+        setloh tmp $rt
+        add tmp tmp $zero
+        jzfl checkRight
+
+         // calculate right top index
+        subi tileIndex size.x
+        addi tileIndex 1
+
+        set $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        lbramoi tmp $rt tiles.tileDataOffset
+        addi tmp 1
+        sbramoi tmp $rt tiles.tileDataOffset
+
+        seth tmp $zero
+        andi tmp tiles.nearbyBombsCountMask
+        nop .debugwrite "Dodaje licznik bomb RightTop do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+
+    :checkRight
+        popw tileIndex $sp
+        pushw tileIndex $sp
+
+        setw $a1 tileIndex
+        addi $a1 1
+        setwi $a2 size.x
+        jasl Math.div.main $ra
+        setloh tmp $rt
+        add tmp tmp $zero
+        jzfl checkRightBot
+
+         // calculate right index
+        addi tileIndex 1
+
+        set $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        lbramoi tmp $rt tiles.tileDataOffset
+        addi tmp 1
+        sbramoi tmp $rt tiles.tileDataOffset
+
+        seth tmp $zero
+        andi tmp tiles.nearbyBombsCountMask
+        nop .debugwrite "Dodaje licznik bomb Right do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+
+    :checkRightBot
+        popw tileIndex $sp
+        pushw tileIndex $sp
+
+        addwi tileIndex size.xMinusArea
+        jwnotnl tileIndex checkBot
+        addwi tileIndex size.xMinusAreaNegative // przywroc oryginalny index
+
+        setw $a1 tileIndex
+        addi $a1 1
+        setwi $a2 size.x
+        jasl Math.div.main $ra
+        setloh tmp $rt
+        add tmp tmp $zero
+        jzfl checkBot
+
+         // calculate right bot index
+        addi tileIndex size.x
+        addi tileIndex 1
+
+        set $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        lbramoi tmp $rt tiles.tileDataOffset
+        addi tmp 1
+        sbramoi tmp $rt tiles.tileDataOffset
+
+        seth tmp $zero
+        andi tmp tiles.nearbyBombsCountMask
+        nop .debugwrite "Dodaje licznik bomb RightBot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+
+    :checkBot
+        popw tileIndex $sp
+        pushw tileIndex $sp
+
+        addwi tileIndex size.xMinusArea
+        jwnotnl tileIndex checkLeftBot
+        addwi tileIndex size.xMinusAreaNegative // przywroc oryginalny index
+
+         // calculate bot index
+        addi tileIndex size.x
+
+        set $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        lbramoi tmp $rt tiles.tileDataOffset
+        addi tmp 1
+        sbramoi tmp $rt tiles.tileDataOffset
+
+        seth tmp $zero
+        andi tmp tiles.nearbyBombsCountMask
+        nop .debugwrite "Dodaje licznik bomb Bot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+
+    :checkLeftBot
+        popw tileIndex $sp
+        pushw tileIndex $sp
+
+        addwi tileIndex size.xMinusArea
+        jwnotnl tileIndex checkLeft
+        addwi tileIndex size.xMinusAreaNegative // przywroc oryginalny index
+
+        setw $a1 tileIndex
+        setwi $a2 size.x
+        jasl Math.div.main $ra
+        setloh tmp $rt
+        add tmp tmp $zero
+        jzfl checkLeft
+
+         // calculate left bot index
+        addi tileIndex size.x
+        subi tileIndex 1
+
+        set $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        lbramoi tmp $rt tiles.tileDataOffset
+        addi tmp 1
+        sbramoi tmp $rt tiles.tileDataOffset
+
+        seth tmp $zero
+        andi tmp tiles.nearbyBombsCountMask
+        nop .debugwrite "Dodaje licznik bomb LeftBot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        
+    :checkLeft
+        popw tileIndex $sp
+
+        setw $a1 tileIndex
+        setwi $a2 size.x
+        jasl Math.div.main $ra
+        setloh tmp $rt
+        add tmp tmp $zero
+        jzfl continue
+
+         // calculate left index
+        subi tileIndex 1
+
+        set $a1 tileIndex
+        jasl tiles.getTilePtrById $ra
+
+        lbramoi tmp $rt tiles.tileDataOffset
+        addi tmp 1
+        sbramoi tmp $rt tiles.tileDataOffset
+
+        seth tmp $zero
+        andi tmp tiles.nearbyBombsCountMask
+        nop .debugwrite "Dodaje licznik bomb Left do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+
+    :continue
+        subi bombsCount 1
+        jzfl exit
+        jl loopGenBombPos
+    
+    :exit
+        popw $s2 $sp
+        popw $s1 $sp
+        popw $ra $sp
+        jr $ra

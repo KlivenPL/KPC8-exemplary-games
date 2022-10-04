@@ -1,0 +1,65 @@
+*@const
+    .setaddress 0x10
+    .binfile ssPtr 4096 "./Spritesheet/Spritesheet.bin"
+
+    .insertmodule "./src/Input.kpc"
+    .insertmodule "./src/Math.kpc"
+    .insertmodule "./src/MainMenu.kpc"
+    .insertmodule "./src/Game.kpc"
+    .insertmodule "./src/Grid.kpc"
+
+    .setaddress 0xF000
+    .binfile menuTmPtr 960 "./Tilemap/MenuTilemap.kpcbin"
+
+    .setaddress 0xF3C2
+    .binfile gameTmPtr 960 "./Tilemap/GameTilemap.kpcbin"
+
+*@module mainModule
+
+*initialize
+
+    :main
+        setwi $sp 0xE000
+        jl MainMenu.initialize.main
+
+
+//.setaddress 0xFFB0
+// *timerInterrupt
+//     :main
+//         pushw $ass $sp
+//         pushw $t2 $sp
+//         pushw $t3 $sp
+
+//         setwi $t1 0x1
+//         lbext $t1 $t1
+
+//         setw $t3 $zero
+
+//         seti $t2 kpad.up
+//         and $t3 $t1 $t2
+//         jwnotzl $t3 moveUp
+
+//         seti $t2 kpad.down
+//         and $t3 $t1 $t2
+//         jwnotzl $t3 moveDown
+
+//         jasl clear $ra
+//         irrret
+
+//     :moveDown
+//         jasl clear $ra
+//         addi paintSprite.rValue 1
+//         sbram $t2 $t3
+//         irrret
+
+//     :moveUp
+//         jasl clear $ra
+//         addi paintSprite.rValue -1
+//         sbram $t2 $t3
+//         irrret
+
+//     :clear
+//         popw $t3 $sp
+//         popw $t2 $sp
+//         popw $ass $sp
+//         jr $ra

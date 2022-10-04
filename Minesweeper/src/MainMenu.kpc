@@ -1,0 +1,190 @@
+*@module MainMenu
+    .exportregion initialize
+
+*menuCursor
+    .defnum spritePtr 0xF43D
+    .defnum cursorStatePtr 0x10
+
+
+*initialize
+    :main
+        nop    
+
+
+*setupMenuTimer
+    .defnum nTimerAddr 0x0
+    .defnum nTimerIrrConf 0xF4
+    .defnum nTimerFreqConf 1
+
+    .defreg rAddress $t1
+    .defreg rValue $t2
+
+    :main
+        setwi rAddress nTimerAddr
+
+        setwi rValue nTimerIrrConf
+        sbext rValue rAddress
+
+        seti rValue nTimerFreqConf
+        sbext rValue rAddress
+
+*setMenuPalette
+    .defnum nPaletteAddr 0xF3FC
+    .defreg rPalette $t1
+    .defreg rOffset $t2
+    .defreg rValue $t3
+
+    :main
+        setwi rPalette nPaletteAddr
+
+        .defcolorhex colBlack "#000000"
+        setwi rValue colBlack
+        pushw rValue rPalette
+
+        .defcolorhex colWhite "#FFFFFF"
+        setwi rValue colWhite
+        pushw rValue rPalette
+
+        .defcolorhex colRed "#00FF00"
+        setwi rValue colRed
+        pushw rValue rPalette
+
+        .defcolorhex colBlue "#5FB0B7"
+        setwi rValue colBlue
+        pushw rValue rPalette
+
+*setMenuTilemap
+    .defnum nTilemapAddr 0xF000
+    .defnum nTilemapSizePlus2 962
+
+    .defreg rRamTmPtr $t1
+    .defreg rOffset $t2
+    .defreg rValue $t3
+
+    :main
+        setwi rRamTmPtr nTilemapAddr
+        setwi rOffset nTilemapSizePlus2
+
+    :copyFromRomToRamLoop
+        addwi rOffset -2
+        lwromo rValue rRamTmPtr rOffset
+        swramo rValue rRamTmPtr rOffset
+        jwnotzl rOffset copyFromRomToRamLoop
+
+*paintMenuSprites
+    .defnum nOemAddr 0xF43D
+    .defnum nSelectorTileId 98
+    .defnum nSelectorPosX 0x1088
+    .defnum nSelectorPosY 112
+
+    .defreg rValue $t2
+    .DEFREG rOemAddr $t3
+
+    :main
+        setwi rOemAddr nOemAddr
+
+        seti rValue nSelectorTileId
+        pushb rValue rOemAddr
+
+        setwi rValue nSelectorPosX
+        pushw rValue rOemAddr
+
+        seti rValue nSelectorPosY
+        pushb rValue rOemAddr
+
+*mainMenuLoop
+    :main
+        // jasl getInput.main $ra
+        // set $a1 $rt
+        // jasl handleInput.main $ra
+       // setw $a1 $rt
+        jasl Input.getInputDown.main $ra
+        set $a1 $rt
+        jasl handleMenuInput.main $ra
+
+        lwrami $t1 Math.random.seedPtr
+        addwi $t1 17
+        swrami $t1 Math.random.seedPtr
+        jl main
+
+*handleMenuInput
+    .defreg input $a1
+    .defreg inputMask $t1
+    .defreg inputMatch $t2
+    
+    :main
+        pushw $s1 $sp
+        pushw $s2 $sp
+        pushw $ra $sp
+
+        .defreg rCursorStatePtr $t1
+        .defreg rCursorState $t2
+
+        .defreg rCursorPtr $t1
+        .defreg rCursorPosPixelY $t2
+
+    :checkMoveUp
+        seti inputMask Input.kpad.up
+        and inputMatch input inputMask
+        jzfl checkMoveDown
+        
+        // set cursor state
+        setwi rCursorStatePtr menuCursor.cursorStatePtr
+        lbram rCursorState rCursorStatePtr
+        add rCursorState $zero rCursorState
+        jzfl clear
+        subi rCursorState 1
+        sbram rCursorState rCursorStatePtr
+        
+        // move cursor sprite up
+        setwi rCursorPtr menuCursor.spritePtr
+        addwi rCursorPtr 3
+        lbram rCursorPosPixelY rCursorPtr
+        subi rCursorPosPixelY 16
+        sbram rCursorPosPixelY rCursorPtr
+
+        nop .debugwrite "Current cursor state: {%ram(0x10)%}"
+
+        jl clear
+
+    :checkMoveDown
+        seti inputMask Input.kpad.down
+        and inputMatch input inputMask
+        jzfl checkSelect
+
+        // set cursor state
+        setwi rCursorStatePtr menuCursor.cursorStatePtr
+        lbram rCursorState rCursorStatePtr
+        subi rCursorState 2
+        jzfl clear
+        addi rCursorState 3
+        sbram rCursorState rCursorStatePtr
+        
+        // move cursor sprite down
+        setwi rCursorPtr menuCursor.spritePtr
+        addwi rCursorPtr 3
+        lbram rCursorPosPixelY rCursorPtr
+        addi rCursorPosPixelY 16
+        sbram rCursorPosPixelY rCursorPtr
+
+        nop .debugwrite "Current cursor state: {%ram(0x10)%}"
+
+        jl clear
+    
+    :checkSelect
+        seti inputMask Input.kpad.a
+        and inputMatch input inputMask
+        jzfl clear
+
+        popw $ra $sp
+        popw $s2 $sp
+        popw $s1 $sp
+
+        jl Game.initialize.main
+
+    :clear
+        popw $ra $sp
+        popw $s2 $sp
+        popw $s1 $sp
+        jr $ra
+

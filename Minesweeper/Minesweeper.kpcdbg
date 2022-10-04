@@ -1,0 +1,3372 @@
+{
+  "$type": "System.Collections.Generic.List`1[[Assembler.DebugData.IDebugSymbol, Assembler]], System.Private.CoreLib",
+  "$values": [
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 19,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63367
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 20,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63369
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 24,
+      "n": "currentTilemapIdPtr",
+      "v": "0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 27,
+      "n": "none",
+      "v": "0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 28,
+      "n": "up",
+      "v": "1",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 29,
+      "n": "right",
+      "v": "2",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 30,
+      "n": "down",
+      "v": "4",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 31,
+      "n": "left",
+      "v": "8",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 32,
+      "n": "a",
+      "v": "16",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 33,
+      "n": "b",
+      "v": "32",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 34,
+      "n": "start",
+      "v": "64",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 35,
+      "n": "select",
+      "v": "128",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 38,
+      "n": "spritePtr",
+      "v": "62525",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 39,
+      "n": "cursorStatePtr",
+      "v": "16",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 42,
+      "n": "spritePtr",
+      "v": "62525",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 43,
+      "n": "posXGridPtr",
+      "v": "16",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 44,
+      "n": "posYGridPtr",
+      "v": "17",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 47,
+      "n": "gridSizeX",
+      "v": "16",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 48,
+      "n": "gridSizeY",
+      "v": "12",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 52,
+      "n": "nTimerAddr",
+      "v": "0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 53,
+      "n": "nTimerIrrConf",
+      "v": "244",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 54,
+      "n": "nTimerFreqConf",
+      "v": "1",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 56,
+      "n": "rAddress",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 57,
+      "n": "rValue",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 60,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63375
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 62,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63381
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 63,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63383
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 65,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63385
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 66,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63387
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 69,
+      "n": "nPaletteAddr",
+      "v": "62460",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 70,
+      "n": "rPalette",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 71,
+      "n": "rOffset",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 72,
+      "n": "rValue",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 75,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63393
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 77,
+      "n": "colBlack",
+      "v": "R:0 G:0 B:0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 78,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63399
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 79,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63401
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 81,
+      "n": "colWhite",
+      "v": "R:31 G:31 B:31",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 82,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63407
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 83,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63409
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 85,
+      "n": "colRed",
+      "v": "R:0 G:31 B:0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 86,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63415
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 87,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63417
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 89,
+      "n": "colBlue",
+      "v": "R:11 G:22 B:22",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 90,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63423
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 91,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63425
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 94,
+      "n": "nTilemapAddr",
+      "v": "61440",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 95,
+      "n": "nTilemapSizePlus2",
+      "v": "962",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 97,
+      "n": "rRamTmPtr",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 98,
+      "n": "rOffset",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 99,
+      "n": "rValue",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 102,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63431
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 103,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63437
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 106,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63443
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 107,
+      "cs": 9,
+      "ce": 15,
+      "addr": 63445
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 108,
+      "cs": 9,
+      "ce": 15,
+      "addr": 63447
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 112,
+      "n": "nOemAddr",
+      "v": "62525",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 113,
+      "n": "nSelectorTileId",
+      "v": "98",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 114,
+      "n": "nSelectorPosX",
+      "v": "4232",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 115,
+      "n": "nSelectorPosY",
+      "v": "112",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 117,
+      "n": "rValue",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 118,
+      "n": "rOemAddr",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 121,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63459
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 123,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63461
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 124,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63463
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 126,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63469
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 127,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63471
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 129,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63473
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 130,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63475
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 139,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63483
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 144,
+      "n": "input",
+      "v": "A1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 145,
+      "n": "inputMask",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 146,
+      "n": "inputMatch",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 149,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63497
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 150,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63499
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 151,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63501
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 153,
+      "n": "rCursorStatePtr",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 154,
+      "n": "rCursorState",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 156,
+      "n": "rCursorPtr",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 157,
+      "n": "rCursorPosPixelY",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 160,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63503
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 161,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63505
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 165,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63517
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 166,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63519
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 167,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63521
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 169,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63529
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 170,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63531
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 173,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63537
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 174,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63543
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 175,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63545
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 176,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63547
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 177,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63549
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 182,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63557
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 183,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63559
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 187,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63571
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 188,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63573
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 189,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63575
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 191,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63583
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 192,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63585
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 195,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63591
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 196,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63597
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 197,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63599
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 198,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63601
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 199,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63603
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 204,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63611
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 205,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63613
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 208,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63621
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 209,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63623
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 210,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63625
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 215,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63633
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 216,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63635
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 217,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63637
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 218,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63639
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 226,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63641
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 229,
+      "n": "nTimerAddr",
+      "v": "0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 230,
+      "n": "nTimerIrrConf",
+      "v": "244",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 231,
+      "n": "nTimerFreqConf",
+      "v": "1",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 233,
+      "n": "rAddress",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 234,
+      "n": "rValue",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 237,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63647
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 239,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63653
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 240,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63655
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 242,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63657
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 243,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63659
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 246,
+      "n": "nPaletteAddr",
+      "v": "62460",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 247,
+      "n": "rPalette",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 248,
+      "n": "rOffset",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 249,
+      "n": "rValue",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 252,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63665
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 254,
+      "n": "colBlack",
+      "v": "R:0 G:0 B:0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 255,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63671
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 256,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63673
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 258,
+      "n": "colWhite",
+      "v": "R:31 G:31 B:31",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 259,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63679
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 260,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63681
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 262,
+      "n": "colRed",
+      "v": "R:0 G:31 B:0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 263,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63687
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 264,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63689
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 266,
+      "n": "colBlue",
+      "v": "R:11 G:22 B:22",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 267,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63695
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 268,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63697
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 271,
+      "n": "rValue",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 272,
+      "n": "rCurrValuePtr",
+      "v": "S1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 273,
+      "n": "rGametileMaxPtr",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 274,
+      "n": "rOffset",
+      "v": "T4",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 275,
+      "n": "nOffset",
+      "v": "962",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 278,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63703
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 279,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63709
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 280,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63715
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 283,
+      "cs": 9,
+      "ce": 15,
+      "addr": 63717
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 284,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63719
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 286,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63727
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 287,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63729
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 292,
+      "n": "nOemAddr",
+      "v": "62525",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 293,
+      "n": "nSelectorATileId",
+      "v": "164",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 294,
+      "n": "nSelectorBTileId",
+      "v": "165",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 295,
+      "n": "nSelectorCTileId",
+      "v": "181",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 296,
+      "n": "nSelectorDTileId",
+      "v": "180",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 298,
+      "n": "nSelectorAPosX",
+      "v": "12288",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 299,
+      "n": "nSelectorAPosY",
+      "v": "0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 300,
+      "n": "nSelectorBPosX",
+      "v": "12288",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 301,
+      "n": "nSelectorBPosY",
+      "v": "0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 302,
+      "n": "nSelectorCPosX",
+      "v": "12288",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 303,
+      "n": "nSelectorCPosY",
+      "v": "0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 304,
+      "n": "nSelectorDPosX",
+      "v": "12288",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 305,
+      "n": "nSelectorDPosY",
+      "v": "0",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 307,
+      "n": "rValue",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 308,
+      "n": "rOemAddr",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 311,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63747
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 313,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63749
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 314,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63751
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 316,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63757
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 317,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63759
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 319,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63761
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 320,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63763
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 322,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63765
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 323,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63767
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 325,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63773
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 326,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63775
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 328,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63777
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 329,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63779
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 331,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63781
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 332,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63783
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 334,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63789
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 335,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63791
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 337,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63793
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 338,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63795
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 340,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63797
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 341,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63799
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 343,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63805
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 344,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63807
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 346,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63809
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 347,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63811
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 351,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63817
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 352,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63823
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 63823
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 353,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63829
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 63829
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 359,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63843
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 365,
+      "n": "input",
+      "v": "A1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 366,
+      "n": "inputMask",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 367,
+      "n": "inputMatch",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 368,
+      "n": "rPosXGrid",
+      "v": "S1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 369,
+      "n": "rPosYGrid",
+      "v": "S2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 372,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63857
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 373,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63859
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 374,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63861
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 376,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63867
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 377,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63869
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 379,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63875
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 380,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63877
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 384,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63879
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 385,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63881
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 388,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63893
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 63893
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 390,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63899
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 391,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63901
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 392,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63903
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 395,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63911
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 396,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63913
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 397,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63915
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 398,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63917
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 401,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63919
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 402,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63921
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 405,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63933
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 63933
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 407,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63939
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 408,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63941
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 409,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63943
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 412,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63951
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 413,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63953
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 414,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63955
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 415,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63957
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 418,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63959
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 419,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63961
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 422,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63973
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 63973
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 424,
+      "cs": 9,
+      "ce": 14,
+      "addr": 63979
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 425,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63981
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 426,
+      "cs": 9,
+      "ce": 12,
+      "addr": 63983
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 429,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63991
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 430,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63993
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 431,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63995
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 432,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63997
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 435,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63999
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 436,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64001
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 439,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64013
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64013
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 440,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64019
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 441,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64021
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 442,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64023
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 446,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64031
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 447,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64033
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 448,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64035
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 449,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64037
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 455,
+      "n": "rSelectorSpriteAPtr",
+      "v": "A1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 456,
+      "n": "rPosXGrid",
+      "v": "A2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 457,
+      "n": "rPosYGrid",
+      "v": "A3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 459,
+      "n": "rPosXPixel",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 460,
+      "n": "rPosYPixel",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 463,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64039
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 464,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64041
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 467,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64043
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 468,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64045
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 469,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64051
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64051
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 471,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64063
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64063
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 474,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64071
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 475,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64073
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 476,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64079
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64079
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 478,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64091
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64091
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 481,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64099
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 484,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64105
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 485,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64107
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 487,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64113
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 488,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64115
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 490,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64121
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64121
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 492,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64129
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 494,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64135
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64135
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 495,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64137
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 497,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64145
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 499,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64147
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 502,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64153
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 503,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64155
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 504,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64157
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 507,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64163
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 508,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64165
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 509,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64167
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 510,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64169
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 513,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64175
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 514,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64177
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 515,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64179
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 516,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64181
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 519,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64187
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 520,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64189
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 521,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64191
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 522,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64193
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 525,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64195
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 526,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64197
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 6,
+      "n": "previousInputPtr",
+      "v": "21",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 10,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64203
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 11,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64205
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 12,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64207
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 13,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64209
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 16,
+      "n": "rPrevInputPtr",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 17,
+      "n": "rPrevInput",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 18,
+      "n": "rCurrInput",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 22,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64215
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 23,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64217
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 26,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64223
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 27,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64225
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 29,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64227
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 30,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64229
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 32,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64231
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 34,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64233
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Input.kpc",
+      "l": 35,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64235
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 7,
+      "n": "xd1",
+      "v": "2137",
+      "isReg": false
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 8,
+      "n": "xd2",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 12,
+      "n": "rA",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 13,
+      "n": "rB",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 14,
+      "n": "rResult",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 17,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64237
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 18,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64239
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 19,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64241
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 22,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64243
+    },
+    {
+      "$type": "Assembler.DebugData.DebugWriteSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 24,
+      "addr": 64245,
+      "v": "[{%time%}] ram at 2: {%ram(2)%}, ram at sp: {%ram($sp)%}, ram at 0xF43D: {%ram(0xF43D)%} {%ram(0xF43E)%} {%ram(0xF43F)%} {%ram(0xF440)%}"
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 25,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64245
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 26,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64247
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 28,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64249
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 31,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64257
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 36,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64265
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 37,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64267
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 43,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64281
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 45,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64283
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 46,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64285
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 47,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64287
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 48,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64289
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 53,
+      "n": "seedPtr",
+      "v": "A1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 54,
+      "n": "iterations",
+      "v": "A2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 55,
+      "n": "lfsr",
+      "v": "T1",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 56,
+      "n": "lsbHi",
+      "v": "T2",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 57,
+      "n": "lsb",
+      "v": "T3",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ConstantValueSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 58,
+      "n": "one",
+      "v": "T4",
+      "isReg": true
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 61,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64291
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 62,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64297
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64297
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 63,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64299
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 66,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64301
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 69,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64303
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 70,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64305
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 71,
+      "cs": 9,
+      "ce": 16,
+      "addr": 64307
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 72,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64309
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 73,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64311
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 74,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64313
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 75,
+      "cs": 9,
+      "ce": 16,
+      "addr": 64315
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 76,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64317
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 78,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64325
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 79,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64327
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 82,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64329
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 85,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64341
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 86,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64343
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 87,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64345
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 88,
+      "cs": 9,
+      "ce": 16,
+      "addr": 64347
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 89,
+      "cs": 9,
+      "ce": 14,
+      "addr": 64353
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 90,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64355
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 91,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64357
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 92,
+      "cs": 9,
+      "ce": 16,
+      "addr": 64359
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 95,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64365
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": -1,
+      "ce": 3,
+      "addr": 64365
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 97,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64373
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 98,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64375
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 99,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64377
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 100,
+      "cs": 9,
+      "ce": 12,
+      "addr": 64379
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 104,
+      "cs": 5,
+      "ce": 10,
+      "addr": 64387
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 105,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64389
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": null,
+      "l": -1,
+      "cs": 0,
+      "ce": 2,
+      "addr": 5
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 109,
+      "cs": 9,
+      "ce": 16,
+      "addr": 63453
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 138,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63481
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 140,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63489
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 141,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63495
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 162,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63511
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 168,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63527
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 179,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63555
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 184,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63565
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 190,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63581
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 201,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63609
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 206,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63619
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 212,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63631
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 288,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63735
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 289,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63741
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 354,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63835
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 358,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63841
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 360,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63849
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 362,
+      "cs": 9,
+      "ce": 11,
+      "addr": 63855
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 386,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63887
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 393,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63909
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 403,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63927
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 410,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63949
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 420,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63967
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 427,
+      "cs": 9,
+      "ce": 13,
+      "addr": 63989
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 437,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64007
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 443,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64029
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 470,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64057
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 472,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64069
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 477,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64085
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 479,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64097
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 491,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64127
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\Minesweeper.kpc",
+      "l": 496,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64143
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 29,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64255
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 32,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64263
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 38,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64273
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 39,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64279
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 77,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64323
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 83,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64335
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 96,
+      "cs": 9,
+      "ce": 13,
+      "addr": 64371
+    },
+    {
+      "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
+      "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
+      "l": 101,
+      "cs": 9,
+      "ce": 11,
+      "addr": 64385
+    }
+  ]
+}

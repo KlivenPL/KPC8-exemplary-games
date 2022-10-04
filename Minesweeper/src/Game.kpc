@@ -1,0 +1,319 @@
+*@module Game
+    .exportregion initialize
+
+*cursor
+    .defnum spritePtr 0xF43D
+    .defnum posXGridPtr 0x10
+    .defnum posYGridPtr 0x11
+
+
+*initialize
+    :main
+        setwi $a1 1
+        jasl Grid.generate.main $ra
+
+*setupGameTimer
+    .defnum nTimerAddr 0x0
+    .defnum nTimerIrrConf 0xF4
+    .defnum nTimerFreqConf 1
+
+    .defreg rAddress $t1
+    .defreg rValue $t2
+
+    :main
+        setwi rAddress nTimerAddr
+
+        setwi rValue nTimerIrrConf
+        sbext rValue rAddress
+
+        seti rValue nTimerFreqConf
+        sbext rValue rAddress
+
+*setGamePalette
+    .defnum nPaletteAddr 0xF3FC
+    .defreg rPalette $t1
+    .defreg rOffset $t2
+    .defreg rValue $t3
+
+    :main
+        setwi rPalette nPaletteAddr
+
+        .defcolorhex colBlack "#000000"
+        setwi rValue colBlack
+        pushw rValue rPalette
+
+        .defcolorhex colWhite "#FFFFFF"
+        setwi rValue colWhite
+        pushw rValue rPalette
+
+        .defcolorhex colRed "#00FF00"
+        setwi rValue colRed
+        pushw rValue rPalette
+
+        .defcolorhex colBlue "#5FB0B7"
+        setwi rValue colBlue
+        pushw rValue rPalette
+
+*setGameTilemap
+    .defreg rValue $t1 
+    .defreg rCurrValuePtr $s1
+    .defreg rGametileMaxPtr $t3
+    .defreg rOffset $t4
+    .defnum nOffset 0x3c2
+
+    :main
+        setwi rOffset nOffset
+        setwi rCurrValuePtr 0xF000
+        setwi rGametileMaxPtr 0xC40
+
+    :loop
+        lwromo rValue rCurrValuePtr rOffset
+        swram rValue rCurrValuePtr
+
+        addwi rCurrValuePtr 2
+        addw $t2 rGametileMaxPtr rCurrValuePtr
+        jwzl $t2 paintGameSprites.main
+        jl loop
+
+*paintGameSprites
+    .defnum nOemAddr 0xF43D
+    .defnum nSelectorATileId 164
+    .defnum nSelectorBTileId 165
+    .defnum nSelectorCTileId 181
+    .defnum nSelectorDTileId 180
+
+    .defnum nSelectorAPosX 0x3000
+    .defnum nSelectorAPosY 0
+    .defnum nSelectorBPosX 0x3000
+    .defnum nSelectorBPosY 0
+    .defnum nSelectorCPosX 0x3000
+    .defnum nSelectorCPosY 0
+    .defnum nSelectorDPosX 0x3000
+    .defnum nSelectorDPosY 0
+
+    .defreg rValue $t2
+    .DEFREG rOemAddr $t3
+
+    :main
+        setwi rOemAddr nOemAddr
+
+        seti rValue nSelectorATileId
+        pushb rValue rOemAddr
+
+        setwi rValue nSelectorAPosX
+        pushw rValue rOemAddr
+
+        seti rValue nSelectorAPosY
+        pushb rValue rOemAddr
+
+        seti rValue nSelectorBTileId
+        pushb rValue rOemAddr
+
+        setwi rValue nSelectorBPosX
+        pushw rValue rOemAddr
+
+        seti rValue nSelectorBPosY
+        pushb rValue rOemAddr
+
+        seti rValue nSelectorCTileId
+        pushb rValue rOemAddr
+
+        setwi rValue nSelectorCPosX
+        pushw rValue rOemAddr
+
+        seti rValue nSelectorCPosY
+        pushb rValue rOemAddr
+
+        seti rValue nSelectorDTileId
+        pushb rValue rOemAddr
+
+        setwi rValue nSelectorDPosX
+        pushw rValue rOemAddr
+
+        seti rValue nSelectorDPosY
+        pushb rValue rOemAddr
+
+*gameInitialization
+    :main
+        setwi $a1 cursor.spritePtr
+        seti $a2 5
+        seti $a3 10
+        jasl moveSelector.main $ra
+
+*mainGameLoop
+    :main
+        jasl Input.getInput.main $ra
+        set $a1 $rt
+        jasl handleInput.main $ra
+
+        jl main
+
+// *generateBombs
+//     .defnum difficulty $t1
+
+//     :main
+
+
+*handleInput
+    .defreg input $a1
+    .defreg inputMask $t1
+    .defreg inputMatch $t2
+    .defreg rPosXGrid $s1
+    .defreg rPosYGrid $s2
+    
+    :main
+        pushw $s1 $sp
+        pushw $s2 $sp
+        pushw $ra $sp
+
+        setwi $t1 cursor.posXGridPtr
+        lbram rPosXGrid $t1
+
+        setwi $t1 cursor.posYGridPtr
+        lbram rPosYGrid $t1
+
+
+    :checkMoveUp
+        seti inputMask Input.kpad.up
+        and inputMatch input inputMask
+        jzfl handleInput.checkMoveRight
+        
+        subi rPosYGrid 1
+
+        setwi $a1 cursor.spritePtr
+        set $a2 rPosXGrid
+        set $a3 rPosYGrid
+        jasl moveSelector.main $ra
+        
+        popw $ra $sp
+        popw $s2 $sp
+        popw $s1 $sp
+        jr $ra
+
+    :checkMoveRight
+        seti inputMask Input.kpad.right
+        and inputMatch input inputMask
+        jzfl handleInput.checkMoveDown
+        
+        addi rPosXGrid 1
+
+        setwi $a1 cursor.spritePtr
+        set $a2 rPosXGrid
+        set $a3 rPosYGrid
+        jasl moveSelector.main $ra
+
+        popw $ra $sp
+        popw $s2 $sp
+        popw $s1 $sp
+        jr $ra
+
+    :checkMoveDown
+        seti inputMask Input.kpad.down
+        and inputMatch input inputMask
+        jzfl handleInput.checkMoveLeft
+
+        addi rPosYGrid 1
+
+        setwi $a1 cursor.spritePtr
+        set $a2 rPosXGrid
+        set $a3 rPosYGrid
+        jasl moveSelector.main $ra
+
+        popw $ra $sp
+        popw $s2 $sp
+        popw $s1 $sp
+        jr $ra
+
+    :checkMoveLeft
+        seti inputMask Input.kpad.left
+        and inputMatch input inputMask
+        jzfl handleInput.clear
+
+        subi rPosXGrid 1
+        setwi $a1 cursor.spritePtr
+        set $a2 rPosXGrid
+        set $a3 rPosYGrid
+        jasl moveSelector.main $ra
+    
+    :clear
+        popw $ra $sp
+        popw $s2 $sp
+        popw $s1 $sp
+        jr $ra
+
+// a1 = selectorSpriteAPtr
+// a2 = posX in grid coords
+// a3 = posY in grid coords
+*moveSelector
+    .defreg rSelectorSpriteAPtr $a1  // word
+    .defreg rPosXGrid $a2            // byte
+    .defreg rPosYGrid $a3            // byte
+
+    .defreg rPosXPixel $t1
+    .defreg rPosYPixel $t2
+
+    :main
+        pushw $ra $sp
+        setw $t3 rSelectorSpriteAPtr
+
+        // check if position in grid range
+        set $t1 rPosXGrid
+        seti $t2 Grid.size.x
+        sub $zero $t2 $t1 
+        jzfl clear
+        add $zero $t2 $t1 
+        jcfl clear
+
+        set $t1 rPosYGrid
+        seti $t2 Grid.size.y
+        sub $zero $t2 $t1 
+        jzfl clear
+        add $zero $t2 $t1 
+        jcfl clear
+
+        pushw $t3 $sp
+
+        // save Grid pos
+        setwi $t1 cursor.posXGridPtr
+        sbram rPosXGrid $t1 
+
+        setwi $t1 cursor.posYGridPtr
+        sbram rPosYGrid $t1
+
+        seti $a1 16
+        jasl Math.mul.main $ra
+        set rPosXPixel $rt
+
+        seti $a1 16
+        set $a2 rPosYGrid
+        jasl Math.mul.main $ra
+        set rPosYPixel $rt
+
+        popw $t3 $sp
+
+        // left upper corner
+        addwi $t3 2
+        pushb rPosXPixel $t3
+        pushb rPosYPixel $t3
+
+        // right upper corner
+        addwi $t3 2
+        addi rPosXPixel 8
+        pushb rPosXPixel $t3
+        pushb rPosYPixel $t3
+
+        // right lower corner
+        addwi $t3 2
+        addi rPosYPixel 8
+        pushb rPosXPixel $t3
+        pushb rPosYPixel $t3
+
+        // left lower corner
+        addwi $t3 2
+        subi rPosXPixel 8
+        pushb rPosXPixel $t3
+        pushb rPosYPixel $t3
+
+    :clear
+        popw $ra $sp 
+        jr $ra

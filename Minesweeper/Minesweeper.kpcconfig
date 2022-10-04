@@ -1,0 +1,15 @@
+{
+    "ClockPeriodInTicks": 5,
+    "KTimers": [
+        {
+            "TimerName": "Timer1",
+            "TimerAddress": 0
+        }
+    ],
+    "KPads": [
+        {
+            "PadName": "Pad1",
+            "PadAddress": 1
+        }
+    ]
+}

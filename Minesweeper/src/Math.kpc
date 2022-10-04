@@ -1,0 +1,197 @@
+*@module Math
+    .exportregion mul
+    .exportregion mul16
+    .exportregion div
+    .exportregion getRandomValue
+    .exportregion random
+
+*random
+    .defnum seedPtr 0x08
+
+// $a1 = numA
+// $a2 = numB
+*mul
+    .defreg rA $t1 // byte
+    .defreg rB $t2 // byte
+    .defreg rResult $t3
+    
+    :main
+        pushw $t1 $sp
+        pushw $t2 $sp
+        pushw $t3 $sp
+
+       // .debugwrite "DEBUG WRITE XDDDD rA: {rA} $a1: {$a1}"
+        set rA $a1
+       // .debugwrite "DEBUG WRITE XDDDD rA: {rA} $a1: {$a1}"
+      //  .debugwrite "[{%time%}] ram at 2: {%ram(2)%}, ram at sp: {%ram($sp)%}, ram at 0xF43D: {%ram(0xF43D)%} {%ram(0xF43E)%} {%ram(0xF43F)%} {%ram(0xF440)%}"
+        set rB $a2
+        seti rResult 0
+
+        addi $t1 0
+        jzfl continue
+
+        addi $t2 0
+        jzfl continue
+        //irrdis
+
+    :loop
+        add rResult rA rResult
+        subi rB 1
+        jzfl continue
+        jl loop
+
+    :continue
+   // irren
+        set $rt rResult
+
+        popw $t3 $sp
+        popw $t2 $sp
+        popw $t1 $SP
+        jr $ra
+
+*mul16
+    .defreg rA $t1 // byte
+    .defreg rB $t2 // byte
+    .defreg rResult $t3
+    
+    :main
+        pushw $t1 $sp
+        pushw $t2 $sp
+        pushw $t3 $sp
+
+        setw rA $a1
+        setw rB $a2
+        setw rResult $zero
+
+        addi $t1 0
+        jzfl continue
+
+        addi $t2 0
+        jzfl continue
+        //irrdis
+
+    :loop
+        addw rResult rA rResult
+        subi rB 1
+        jzfl continue
+        jl loop
+
+    :continue
+   // irren
+        setw $rt rResult
+
+        popw $t3 $sp
+        popw $t2 $sp
+        popw $t1 $SP
+        jr $ra
+
+// R to jest reminder czyli mod
+// R := N
+// Q := 0
+// while R ≥ D do
+//   R := R − D
+//   Q := Q + 1
+// end
+// return (R,Q)
+
+*div
+    .defreg n $a1
+    .defreg d $a2 // 8 bit ale pierwsze 8 bit muszą być 0!!!
+    .defreg r $t1
+    .defreg q $t2
+    .defreg tmp $t3
+
+    :main
+        pushw r $sp
+        pushw q $sp
+        pushw tmp $sp
+
+        setw r n
+        setw q $zero
+        setw tmp $zero
+        negw d d
+
+    :loop
+        addw tmp r d
+        jwnl tmp exit
+
+        set r tmp
+        addi q 1
+
+        jl loop
+
+    :exit
+        setloh $rt r
+        set $rt q
+        
+        popw tmp $sp
+        popw q $sp
+        popw r $sp
+        jr $ra
+
+// a1 = bit-length
+*getRandomValue
+    .defnum defaultSeed 0xf032
+    .defreg iterations $a1
+    .defreg lfsr $t1
+    .defreg lsbHi $t2
+    .defreg lsb $t3
+    .defreg one $t4
+
+    :main
+        lwrami lfsr random.seedPtr
+        jwnotzl lfsr mainCnt
+        setwi lfsr defaultSeed
+    :mainCnt
+        seti one 1
+        //.debugwrite "Seed to: {lfsr}"
+        setw $rt $zero
+
+    :loop
+        and lsb lfsr one
+      //  .debugwrite "rt: {$rt}"
+        // srlw
+        srl lfsr lfsr $zero
+        setw $ass lfsr
+        swaploh lfsr $ass
+        and lsbHi lfsr one
+        srl lfsr lfsr $zero
+        setw $ass lfsr
+        swaploh lfsr $ass
+        add lsbHi lsbHi $zero
+        jzfl galiosContinue
+        seti $t2 0x80
+        or lfsr lfsr $t2
+
+    :galiosContinue
+        add lsb lsb $zero
+        jzfl outputBitIsZero
+
+        setwi $t2 0x00
+        xor lfsr lfsr $t2
+        setw $t3 lfsr
+        swaploh lfsr $t3
+        setwi $t2 0xB4
+        xor lfsr lfsr $t2
+        setw $t3 lfsr
+        swaploh lfsr $t3
+
+    :outputBitIsZero
+        subi iterations 1
+        jnfl return
+
+        sll $ass $rt $zero
+        set $rt $ass
+
+        and $ass lfsr one
+        or $ass $ass $rt
+        set $rt $ass
+
+        jl loop
+
+    :return
+        // lwrami $t1 random.seedPtr
+        // addwi $t1 17
+        swrami lfsr random.seedPtr
+        //.debugwrite "rand: {$rt}"
+        jr $ra
