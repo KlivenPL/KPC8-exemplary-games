@@ -9,7 +9,7 @@
 
 *initialize
     :main
-        setwi $a1 1
+        sethi $a1 0
         jasl Grid.generate.main $ra
 
 *setupGameTimer

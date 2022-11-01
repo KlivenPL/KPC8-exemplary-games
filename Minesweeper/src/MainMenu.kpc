@@ -180,6 +180,7 @@
         popw $s2 $sp
         popw $s1 $sp
 
+        lbrami $a1 menuCursor.cursorStatePtr
         jl Game.initialize.main
 
     :clear

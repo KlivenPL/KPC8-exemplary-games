@@ -305,64 +305,64 @@
         pushw $s1 $sp
         pushw $s2 $sp
 
-        seti bombsCount 8
+        seti bombsCount 16
 
         // TEST
-        setw tmp $zero
+        // setw tmp $zero
 
-        seti tmp 0
-        pushb tmp $sp
+        // seti tmp 0
+        // pushb tmp $sp
 
-        seti tmp 1
-        pushb tmp $sp
+        // seti tmp 1
+        // pushb tmp $sp
 
-        seti tmp 14
-        pushb tmp $sp
+        // seti tmp 14
+        // pushb tmp $sp
 
-        seti tmp 15
-        pushb tmp $sp
+        // seti tmp 15
+        // pushb tmp $sp
 
-        seti tmp 16
-        pushb tmp $sp
+        // seti tmp 16
+        // pushb tmp $sp
 
-        seti tmp 48
-        pushb tmp $sp
+        // seti tmp 48
+        // pushb tmp $sp
 
-        seti tmp 160
-        pushb tmp $sp
+        // seti tmp 160
+        // pushb tmp $sp
 
-        seti tmp 176
-        pushb tmp $sp
+        // seti tmp 176
+        // pushb tmp $sp
 
 
-        seti tmp 31
-        pushb tmp $sp
+        // seti tmp 31
+        // pushb tmp $sp
 
-        seti tmp 47
-        pushb tmp $sp
+        // seti tmp 47
+        // pushb tmp $sp
 
-        seti tmp 175
-        pushb tmp $sp
+        // seti tmp 175
+        // pushb tmp $sp
 
-        seti tmp 191
-        pushb tmp $sp
+        // seti tmp 191
+        // pushb tmp $sp
 
-        seti tmp 190
-        pushb tmp $sp
+        // seti tmp 190
+        // pushb tmp $sp
 
-        seti tmp 189
-        pushb tmp $sp
+        // seti tmp 189
+        // pushb tmp $sp
 
-        seti tmp 177
-        pushb tmp $sp
+        // seti tmp 177
+        // pushb tmp $sp
 
-        seti tmp 176
-        pushb tmp $sp
+        // seti tmp 176
+        // pushb tmp $sp
 
-        seti tmp 51
-        pushb tmp $sp
+        // seti tmp 51
+        // pushb tmp $sp
 
-        setw tmp $zero
+        // setw tmp $zero
 
         //END TEST
 
@@ -376,17 +376,17 @@
         setw tileIndex $zero
 
 // PRZYWROCIC -=-=-=
-        // setwi $a1 7
-        // jasl Math.getRandomValue.main $ra
-        // set tileIndex $rt
+        setwi $a1 7
+        jasl Math.getRandomValue.main $ra
+        set tileIndex $rt
 
-        // setwi $a1 6
-        // jasl Math.getRandomValue.main $ra
-        // add tileIndex tileIndex $rt
+        setwi $a1 6
+        jasl Math.getRandomValue.main $ra
+        add tileIndex tileIndex $rt
 // -=-=-=-=-=-=-=-
 
 // test -=-=-=
-        popb tileIndex $sp
+     //   popb tileIndex $sp
 // -=-=-=-=
 
         // sprawdzamy czy pozycja jest już bombą
