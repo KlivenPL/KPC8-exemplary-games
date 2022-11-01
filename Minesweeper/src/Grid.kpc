@@ -104,6 +104,9 @@
 
         .defreg tmpTilemapId $t1
         .defreg tmpSSId $t2
+
+        pushb tileX $sp
+        pushb tileY $sp
         
         sethi tileX 0
         sethi tileY 0
@@ -140,6 +143,8 @@
         sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
 
     :clear
+        popb tileY $sp
+        popb tileX $sp
         popw $ra $sp
         jr $ra
 
@@ -157,6 +162,20 @@
         .defreg tilePtr $t1 
         .defreg tileData $t2
         .defreg tileDataMask $t3
+
+        // check if position in grid range
+        set $t1 tileX
+        seti $t2 size.x
+        sub $t3 $t2 $t1 
+        jzfl clear
+        add $t3 $t2 $t1
+        jcfl clear
+        set $t1 tileY
+        seti $t2 size.y
+        sub $t3 $t2 $t1 
+        jzfl clear
+        add $t3 $t2 $t1 
+        jcfl clear
 
         // saving arguments
         pushb tileX $sp
@@ -235,6 +254,38 @@
         // $a2 already set to tileY
         seti $a3 tiles.number0SSId
         jasl paintGlobalTile.main $ra
+
+        // start the chain reaction
+
+        pushb $a1 $sp
+        pushb $a2 $sp
+        
+        // up
+        // $a1 already set to tileX
+        addi $a2 -1
+        seti $a3 0xff // set chain reaction to true
+        jasl main $ra
+
+        // right
+        addi $a1 1
+        addi $a2 1
+        seti $a3 0xff // set chain reaction to true
+        jasl main $ra
+
+        // down
+        addi $a1 -1
+        addi $a2 1
+        seti $a3 0xff // set chain reaction to true
+        jasl main $ra
+
+        // left
+        addi $a1 -1
+        addi $a2 -1
+        seti $a3 0xff // set chain reaction to true
+        jasl main $ra
+
+        popb $a2 $sp
+        popb $a1 $sp
 
     :clear
         popw $ra $sp
