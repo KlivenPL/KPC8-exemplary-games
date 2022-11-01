@@ -142,7 +142,7 @@
 
 *mainGameLoop
     :main
-        jasl Input.getInput.main $ra
+        jasl Input.getInputDown.main $ra
         set $a1 $rt
         jasl handleInput.main $ra
 
@@ -227,13 +227,37 @@
     :checkMoveLeft
         seti inputMask Input.kpad.left
         and inputMatch input inputMask
-        jzfl handleInput.clear
+        jzfl handleInput.checkAButton
 
         subi rPosXGrid 1
         setwi $a1 cursor.spritePtr
         set $a2 rPosXGrid
         set $a3 rPosYGrid
         jasl moveSelector.main $ra
+
+        popw $ra $sp
+        popw $s2 $sp
+        popw $s1 $sp
+        jr $ra
+
+    :checkAButton
+        seti inputMask Input.kpad.a
+        and inputMatch input inputMask
+        jzfl handleInput.clear
+
+       // set $a1 rPosXGrid
+        //set $a2 rPosYGrid
+        //jasl Grid.getTileIdByGridPos.main $ra
+        //nop .debugwrite "Kliknales na tile o id {$rt}"
+
+        //setw $a1 $zero
+       // setw $a2 $zero
+
+        setw $a1 rPosXGrid
+        setw $a2 rPosYGrid
+        seti $a3 0
+
+        jasl Grid.revealTile.main $ra
     
     :clear
         popw $ra $sp

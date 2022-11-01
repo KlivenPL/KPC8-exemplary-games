@@ -1,6 +1,9 @@
 *@module Grid
     .exportregion generate
     .exportregion size
+    .exportregion getTileIdByGridPos
+    .exportregion paintGlobalTile 
+    .exportregion revealTile
 
 *size
     .defnum x 16
@@ -9,31 +12,234 @@
     .defnum xMinusAreaNegative 176
     .defnum y 12
 
+    .defnum globalX_2x2 40
+
 *tiles
     .defnum basePtr 0x60
-    .defnum tileStructSize 2
+    .defnum baseBgPtr 0xF000 // pointer to ram background
+    .defnum tileStructSize 1
 
-    .defnum tileDataOffset 0
-    .defnum tileBgOffset 1
+    .defnum tileDataOffset 0 // byte
+
+    .defnum number0SSId 130
+    .defnum number1SSId 132
+    .defnum number2SSId 134
+    .defnum number3SSId 136
+    .defnum number4SSId 138
+    .defnum number5SSId 140
+    .defnum number6SSId 142
+    .defnum flagSSId 160
+    .defnum bombSSId 162
 
     .defnum nearbyBombsCountMask 0b00001111
     .defnum isBombMask 0b01000000
     .defnum isFlagMask 0b00100000
     .defnum isRevealedMask 0b00010000
-
-    :getTilePtrById
+    
+*getTilePtrById
+    :main
         pushw $ra $sp
         .defreg tileId $a1
 
-        seti $a2 tileStructSize
+        seti $a2 tiles.tileStructSize
         setw $rt $zero
         jasl Math.mul16.main $ra
-        addwi $rt basePtr
+        addwi $rt tiles.basePtr
         //.debugwrite "Wyliczony adres dla tileId={tileId} to {$rt}"
         popw $ra $sp
         jr $ra
 
-    
+*getTileIdByGridPos
+   :main
+        pushw $ra $sp
+        .defreg gridPosX $a1
+        .defreg gridPosY $a2
+
+        .defreg tmpResult $t1
+
+        // tileId = gridPosY * gridSize.x + gridPosX
+        set tmpResult gridPosX
+
+        seti $a1 size.x
+        // a2 already set to gridPosY
+        jasl Math.mul.main $ra
+
+        add tmpResult $rt tmpResult
+
+        set $rt tmpResult
+        popw $ra $sp
+        jr $ra
+
+*getTilePtrByGridPos
+    :main
+        pushw $ra $sp
+        .defreg gridPosX $a1
+        .defreg gridPosY $a2
+
+        .defreg tileId $t1
+
+        // tileId = gridPosY * gridSize.x + gridPosX
+        set tileId gridPosX
+
+        seti $a1 size.x
+        // a2 already set to gridPosY
+        jasl Math.mul.main $ra
+
+        add $a1 $rt tileId
+        seti $a2 tiles.tileStructSize
+        setw $rt $zero
+        jasl Math.mul16.main $ra
+        addwi $rt tiles.basePtr
+
+        popw $ra $sp
+        jr $ra
+
+// paints any 2x2 tile, not only game fields
+*paintGlobalTile
+    :main
+        pushw $ra $sp
+        .defreg tileX $a1
+        .defreg tileY $a2
+        .defreg SSId $a3
+
+        .defreg tmpTilemapId $t1
+        .defreg tmpSSId $t2
+        
+        sethi tileX 0
+        sethi tileY 0
+        sethi SSId 0
+       // nop .debugwrite "Paintuje tile {tileX}x{tileY} na tile ss o id {SSId}"
+
+        // tileAddress = (tileY * globalX_2x2 + tileX) * 2
+        setw tmpTilemapId tileX
+
+        setwi $a1 size.globalX_2x2
+        // a2 already set to tileY
+        jasl Math.mul16.main $ra // tileY * globalX_2x2
+
+        addw $a1 tmpTilemapId $rt
+        setwi $a2 2
+        jasl Math.mul16.main $ra // (tileY * globalX_2x2 + tileX) * 2
+
+        setw tmpTilemapId $rt
+       // nop .debugwrite "(tileY * globalX_2x2 + tileX) * 2 = {tmpTilemapId}"
+
+        setw tmpSSId SSId
+        sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
+
+        addwi tmpSSId 1
+        addwi tmpTilemapId 1
+        sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
+
+        addwi tmpSSId 15
+        addwi tmpTilemapId 39
+        sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
+
+        addwi tmpSSId 1
+        addwi tmpTilemapId 1
+        sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
+
+    :clear
+        popw $ra $sp
+        jr $ra
+
+*revealTile
+    :main
+        pushw $ra $sp
+        .defreg tileX $a1
+        .defreg tileY $a2
+        .defreg isChainReveal $a3
+
+        seth $a1 $zero
+        seth $a2 $zero
+        seth $a3 $zero
+
+        .defreg tilePtr $t1 
+        .defreg tileData $t2
+        .defreg tileDataMask $t3
+
+        // saving arguments
+        pushb tileX $sp
+        pushb tileY $sp
+        pushb isChainReveal $sp
+
+        // getting tilePtr
+        jasl getTilePtrByGridPos.main $ra
+        setw tilePtr $rt
+
+        // getting tile data
+        lbramoi tileData tilePtr tiles.tileDataOffset
+
+        // restoring arguments
+        popb isChainReveal $sp
+        popb tileY $sp
+        popb tileX $sp
+
+        // checking is field revealed
+        setwi tileDataMask tiles.isRevealedMask
+        and tileDataMask tileData tileDataMask
+        jzfl tryRevealBomb
+
+        jl clear // nothing to do, tile is already revealed
+
+    :tryRevealBomb
+        // check if field is a bomb
+        setwi tileDataMask tiles.isBombMask
+        and tileDataMask tileData tileDataMask
+        jzfl tryRevealNumber
+
+        // given field is a bomb. bomb should not be revealed on chain reveal.
+        andi isChainReveal 0xFF
+        jzfl revealBomb
+        jl clear
+
+    :revealBomb
+        // reveal the bomb
+        // change reveal flag to 1.
+        ori tileData tiles.isRevealedMask
+        sbramoi tileData tilePtr tiles.tileDataOffset
+
+        // $a1 already set to tileX
+        // $a2 already set to tileY
+        seti $a3 tiles.bombSSId
+        jasl paintGlobalTile.main $ra
+        
+        jl clear
+
+    :tryRevealNumber
+        // at this moment, field (whatever it is) WILL be revealed. lets change its reveal flag to 1.
+        ori tileData tiles.isRevealedMask
+        sbramoi tileData tilePtr tiles.tileDataOffset
+
+        // given field is a number. in chain reveal only 0s and fields adjacent do 0s should be revealed
+        andi tileData tiles.nearbyBombsCountMask // remove 4 MSB of tile data, to get nearby bombs count
+        add tileData tileData $zero // test nearby bombs count
+        jzfl revealZero // if bombs count is 0, reveal it
+
+        // given field is not a 0, but other number. reveal it and return.
+        sll tileData tileData $zero // bombs count *= 2
+        addi tileData tiles.number0SSId // number0 sprite + bombs count * 2
+
+        // $a1 already set to tileX
+        // $a2 already set to tileY
+        set $a3 tileData // a3 = number0 sprite + bombs count * 2
+        jasl paintGlobalTile.main $ra
+
+        jl clear
+
+    :revealZero
+        // given field is a 0. Reveal it and start (continue) chain reaction
+        
+        // reveal the zero
+        // $a1 already set to tileX
+        // $a2 already set to tileY
+        seti $a3 tiles.number0SSId
+        jasl paintGlobalTile.main $ra
+
+    :clear
+        popw $ra $sp
+        jr $ra
+
 
 *generate
     .defreg difficulty $a1
@@ -134,7 +340,7 @@
 
         // sprawdzamy czy pozycja jest już bombą
         setw $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         pushw $rt $sp // tilePtr na sp
 
@@ -175,7 +381,7 @@
         subi tileIndex 1
 
         set $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         lbramoi tmp $rt tiles.tileDataOffset
         addi tmp 1
@@ -198,7 +404,7 @@
         subi tileIndex size.x
 
         set $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         lbramoi tmp $rt tiles.tileDataOffset
         addi tmp 1
@@ -229,7 +435,7 @@
         addi tileIndex 1
 
         set $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         lbramoi tmp $rt tiles.tileDataOffset
         addi tmp 1
@@ -255,7 +461,7 @@
         addi tileIndex 1
 
         set $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         lbramoi tmp $rt tiles.tileDataOffset
         addi tmp 1
@@ -286,7 +492,7 @@
         addi tileIndex 1
 
         set $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         lbramoi tmp $rt tiles.tileDataOffset
         addi tmp 1
@@ -308,7 +514,7 @@
         addi tileIndex size.x
 
         set $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         lbramoi tmp $rt tiles.tileDataOffset
         addi tmp 1
@@ -338,7 +544,7 @@
         subi tileIndex 1
 
         set $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         lbramoi tmp $rt tiles.tileDataOffset
         addi tmp 1
@@ -362,7 +568,7 @@
         subi tileIndex 1
 
         set $a1 tileIndex
-        jasl tiles.getTilePtrById $ra
+        jasl getTilePtrById.main $ra
 
         lbramoi tmp $rt tiles.tileDataOffset
         addi tmp 1
