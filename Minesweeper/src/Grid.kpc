@@ -21,15 +21,10 @@
 
     .defnum tileDataOffset 0 // byte
 
-    .defnum number0SSId 130
-    .defnum number1SSId 132
-    .defnum number2SSId 134
-    .defnum number3SSId 136
-    .defnum number4SSId 138
-    .defnum number5SSId 140
-    .defnum number6SSId 142
-    .defnum flagSSId 160
-    .defnum bombSSId 162
+    .defnum number0SSId 162
+    .defnum number1SSId 192
+    .defnum flagSSId 166
+    .defnum bombSSId 168
 
     .defnum nearbyBombsCountMask 0b00001111
     .defnum isBombMask 0b01000000
@@ -236,8 +231,9 @@
         jzfl revealZero // if bombs count is 0, reveal it
 
         // given field is not a 0, but other number. reveal it and return.
+        addi tileData -1 // -1, as number1SSId starts from 1, not 0
         sll tileData tileData $zero // bombs count *= 2
-        addi tileData tiles.number0SSId // number0 sprite + bombs count * 2
+        addi tileData tiles.number1SSId // number0 sprite + bombs count * 2
 
         // $a1 already set to tileX
         // $a2 already set to tileY
