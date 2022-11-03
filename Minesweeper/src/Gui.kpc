@@ -1,0 +1,134 @@
+*@module Gui
+    .exportregion initialize
+    .exportregion stats
+    .exportregion addFlags
+
+*stats
+    .defnum bombsCountPtr 0x250 // byte
+    .defnum flagsCountPtr 0x251 // byte
+    .defnum timePtr 0x252 // word
+    .defnum scorePtr 0x254 // word
+
+*frontendStats
+    .defnum number0SSPtr 16
+    .defnum bombsCountDigit0Ptr 0xF139 // 0xF000 + 313
+    .defnum bombsCountDigit1Ptr 0xF13A // 0xF000 + 314
+
+*byteToDec
+    .defreg value $a1
+    .defreg resultPtrArg $a2 // pointer to byte[3]
+
+    :main
+        pushw $ra $sp
+        pushw $s1 $sp
+        .defreg tmp1 $t1
+        .defreg resultPtr $s1
+
+        seth value $zero
+        setw resultPtr resultPtrArg
+
+        // ones
+        set $a1 value
+        seti $a2 10 
+        jasl Math.div.main $ra
+
+        set value $rt
+        swaploh $rt tmp1
+        pushb tmp1 resultPtr
+
+        // tens
+        // a1 already set
+        seti $a2 10 
+        jasl Math.div.main $ra
+
+        set value $rt
+        swaploh $rt tmp1
+        pushb tmp1 resultPtr
+        
+        // hundreds
+        // a1 already set
+        seti $a2 10
+        jasl Math.div.main $ra
+
+        set value $rt
+        swaploh $rt tmp1
+        pushb tmp1 resultPtr
+
+    :clear
+        popw $s1 $sp
+        popw $ra $sp
+        jr $ra
+
+*initialize
+    .defreg bombsCountArg $a1
+    :main
+        pushw $ra $sp
+        setw $fp $sp
+        .defreg bombsCount $t1
+        set bombsCount bombsCountArg
+        
+        sbramoi bombsCount $zero stats.bombsCountPtr
+
+        pushb $zero $sp
+        pushb $zero $sp
+        pushb $zero $sp
+
+        // $a1 already set
+        setw $a2 $fp
+        jasl byteToDec.main $ra
+
+        popb $zero $sp
+        popb $t2 $sp
+        popb $t3 $sp
+
+        addi $t3 frontendStats.number0SSPtr
+        addi $t2 frontendStats.number0SSPtr
+
+        sbramoi $t2 $zero frontendStats.bombsCountDigit0Ptr
+        sbramoi $t3 $zero frontendStats.bombsCountDigit1Ptr
+
+    :clear
+        popw $ra $sp
+        jr $ra
+
+*addFlags
+    .defreg deltaFlagsCount $a1
+    :main
+        pushw $fp $sp
+        pushw $ra $sp
+        setw $fp $sp
+
+        .defreg flagCount $t1
+        .defreg bombCount $t2
+
+        lbrami flagCount stats.flagsCountPtr
+        add flagCount flagCount deltaFlagsCount
+        sbramoi flagCount $zero stats.flagsCountPtr
+
+    :displayFrontendBombsLeft
+        lbrami bombCount stats.bombsCountPtr
+        sub bombCount bombCount flagCount
+        
+        pushb $zero $sp
+        pushb $zero $sp
+        pushb $zero $sp
+
+        set $a1 bombCount
+        setw $a2 $fp
+        jasl byteToDec.main $ra
+        .defreg tens $t1
+        .defreg ones $t2
+        popb $zero $sp
+        popb tens $sp
+        popb ones $sp
+
+        addi tens frontendStats.number0SSPtr
+        addi ones frontendStats.number0SSPtr
+
+        sbramoi tens $zero frontendStats.bombsCountDigit0Ptr
+        sbramoi ones $zero frontendStats.bombsCountDigit1Ptr
+
+    :clear
+        popw $ra $sp
+        popw $fp $sp
+        jr $ra

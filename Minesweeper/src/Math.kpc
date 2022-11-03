@@ -102,13 +102,12 @@
     .defreg q $t2
     .defreg tmp $t3
 
-    sethi d 0
-
     :main
         pushw r $sp
         pushw q $sp
         pushw tmp $sp
 
+        sethi d 0
         setw r n
         setw q $zero
         setw tmp $zero

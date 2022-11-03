@@ -8,9 +8,10 @@
 
 
 *initialize
+    .defreg difficultyLevel $a1
     :main
-        sethi $a1 0
-        jasl Grid.generate.main $ra
+        sethi difficultyLevel 0
+        pushb difficultyLevel $sp // store difficulty level
 
 *setupGameTimer
     .defnum nTimerAddr 0x0
@@ -119,6 +120,9 @@
         seti $a3 10
         jasl moveSelector.main $ra
 
+        popb $a1 $sp // restore difficultyLevel
+        jasl Grid.generate.main $ra
+
 *mainGameLoop
     :main
         jasl Input.getInputDown.main $ra
@@ -222,21 +226,23 @@
     :checkAButton
         seti inputMask Input.kpad.a
         and inputMatch input inputMask
-        jzfl handleInput.clear
-
-       // set $a1 rPosXGrid
-        //set $a2 rPosYGrid
-        //jasl Grid.getTileIdByGridPos.main $ra
-        //nop .debugwrite "Kliknales na tile o id {$rt}"
-
-        //setw $a1 $zero
-       // setw $a2 $zero
+        jzfl handleInput.checkBButton
 
         setw $a1 rPosXGrid
         setw $a2 rPosYGrid
         seti $a3 0
 
         jasl Grid.revealTile.main $ra
+
+    :checkBButton
+        seti inputMask Input.kpad.b
+        and inputMatch input inputMask
+        jzfl handleInput.clear
+
+        setw $a1 rPosXGrid
+        setw $a2 rPosYGrid
+
+        jasl Grid.toggleFlag.main $ra
     
     :clear
         popw $ra $sp

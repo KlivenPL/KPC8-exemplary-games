@@ -5,6 +5,7 @@
     .exportregion paintGlobalTile 
     .exportregion revealTile
     .exportregion tileColors
+    .exportregion toggleFlag
 
 *size
     .defnum x 16
@@ -24,10 +25,11 @@
 
     .defnum tileDataOffset 0 // byte
 
+    .defnum coveredSSId 160
     .defnum number0SSId 162
     .defnum number1SSId 192
-    .defnum flagSSId 166
-    .defnum bombSSId 168
+    .defnum bombSSId 166
+    .defnum flagSSId 168
 
     .defnum nearbyBombsCountMask 0b00001111
     .defnum isBombMask 0b01000000
@@ -224,6 +226,101 @@
         popw $ra $sp
         jr $ra
 
+*toggleFlag
+    :main
+        pushw $ra $sp
+        .defreg tileX $a1
+        .defreg tileY $a2
+
+        seth $a1 $zero
+        seth $a2 $zero
+        
+        .defreg tilePtr $t1 
+        .defreg tileData $t2
+        .defreg tileDataMask $t3
+
+        pushb tileX $sp
+        pushb tileY $sp
+
+        // getting tilePtr
+        jasl getTilePtrByGridPos.main $ra
+        setw tilePtr $rt
+
+        popb $a2 $sp // a2 = tileY
+        popb $a1 $sp // a1 = tileX
+
+        // getting tile data
+        lbramoi tileData tilePtr tiles.tileDataOffset
+
+        // checking is field revealed
+        setwi tileDataMask tiles.isRevealedMask
+        and tileDataMask tileData tileDataMask
+        jzfl toggle
+
+        jl clear // nothing to do, tile is already revealed
+
+    :toggle
+        // flip mask flag, but dont store it yet
+        xorwi tileData tiles.isFlagMask
+        pushb tileData $sp
+        pushw tilePtr $sp
+
+        // check if place or delete flag.
+        andi tileData tiles.isFlagMask
+        jzfl drawCoveredTile
+
+	 :checkIfAnyFlagAvailable
+        lbrami flagsCount Gui.stats.flagsCountPtr
+        // check if any flag is available
+        .defreg flagsCount $t1 
+        .defreg bombsCount $t2
+
+        lbrami bombsCount Gui.stats.bombsCountPtr
+        sub bombsCount bombsCount flagsCount
+        jzfl noFlagsLeft
+        jl drawFlag
+
+    :noFlagsLeft
+        popw tilePtr $sp
+        popb tileData $sp
+        jl clear
+
+    :drawFlag
+        // store the flag value in ram
+        popw tilePtr $sp
+        popb tileData $sp
+        sbramoi tileData tilePtr tiles.tileDataOffset
+
+        // a1 already set
+        // a2 already set
+        seti $a3 tiles.flagSSId
+        pushbi tileColors.flagPalette $sp
+        jasl paintGlobalTile.main $ra
+
+        seti $a1 1
+        jasl Gui.addFlags.main $ra
+
+        jl clear 
+
+    :drawCoveredTile
+        // store the flag value in ram
+        popw tilePtr $sp
+        popb tileData $sp
+        sbramoi tileData tilePtr tiles.tileDataOffset
+
+        // a1 already set
+        // a2 already set
+        seti $a3 tiles.coveredSSId
+        pushbi tileColors.n0Palette $sp
+        jasl paintGlobalTile.main $ra
+
+        seti $a1 -1
+        jasl Gui.addFlags.main $ra
+
+    :clear
+        popw $ra $sp
+        jr $ra
+
 *revealTile
     :main
         pushw $ra $sp
@@ -270,8 +367,10 @@
         popb tileY $sp
         popb tileX $sp
 
+    :checkIfRevealedOrFlag
         // checking is field revealed
         setwi tileDataMask tiles.isRevealedMask
+        ori tileDataMask tiles.isFlagMask
         and tileDataMask tileData tileDataMask
         jzfl tryRevealBomb
 
@@ -452,11 +551,17 @@
 
     :loopCalcBombsCount
         subi difficulty 1
-        jnfl loopGenBombPos
+        jnfl initializeGuiBombsCount
         sll bombsCount bombsCount $zero
         jl loopCalcBombsCount
 
-    :loopGenBombPos // losujemy pozycje do kazdej z bomb
+    :initializeGuiBombsCount
+        pushw $t1 $sp
+        set $a1 bombsCount
+        jasl Gui.initialize.main $ra
+        popw $t1 $sp
+
+    :loopGenBombPos // losujemy pozycje do kazdej z bomb        
         setw tileIndex $zero
 
 // PRZYWROCIC -=-=-=
@@ -487,7 +592,7 @@
 
         popb tileData $sp
         popw tilePtr $sp
-        nop .debugwrite "Nie moge postawic bomby na tile o id: {tileIndex}, bo bomba juz istnieje"
+        // nop .debugwrite "Nie moge postawic bomby na tile o id: {tileIndex}, bo bomba juz istnieje"
         jl loopGenBombPos
 
     :markTileAsBomb
@@ -496,7 +601,7 @@
 
         ori tileData tiles.isBombMask
         sbramoi tileData tilePtr tiles.tileDataOffset
-        nop .debugwrite "Stawiam bombe na tile o id: {tileIndex}"
+        // nop .debugwrite "Stawiam bombe na tile o id: {tileIndex}"
 
     :checkLeftTop
         pushw tileIndex $sp
@@ -524,8 +629,7 @@
 
         seth tmp $zero
         andi tmp tiles.nearbyBombsCountMask
-        nop
-        nop .debugwrite "Dodaje licznik bomb LeftTop do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        // nop .debugwrite "Dodaje licznik bomb LeftTop do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
 
     :checkTop
         popw tileIndex $sp
@@ -547,7 +651,7 @@
 
         seth tmp $zero
         andi tmp tiles.nearbyBombsCountMask
-        nop .debugwrite "Dodaje licznik bomb Top do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        // nop .debugwrite "Dodaje licznik bomb Top do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
 
     :checkRightTop
         popw tileIndex $sp
@@ -578,7 +682,7 @@
 
         seth tmp $zero
         andi tmp tiles.nearbyBombsCountMask
-        nop .debugwrite "Dodaje licznik bomb RightTop do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        // nop .debugwrite "Dodaje licznik bomb RightTop do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
 
     :checkRight
         popw tileIndex $sp
@@ -604,7 +708,7 @@
 
         seth tmp $zero
         andi tmp tiles.nearbyBombsCountMask
-        nop .debugwrite "Dodaje licznik bomb Right do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        // nop .debugwrite "Dodaje licznik bomb Right do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
 
     :checkRightBot
         popw tileIndex $sp
@@ -635,7 +739,7 @@
 
         seth tmp $zero
         andi tmp tiles.nearbyBombsCountMask
-        nop .debugwrite "Dodaje licznik bomb RightBot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        // nop .debugwrite "Dodaje licznik bomb RightBot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
 
     :checkBot
         popw tileIndex $sp
@@ -657,7 +761,7 @@
 
         seth tmp $zero
         andi tmp tiles.nearbyBombsCountMask
-        nop .debugwrite "Dodaje licznik bomb Bot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        // nop .debugwrite "Dodaje licznik bomb Bot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
 
     :checkLeftBot
         popw tileIndex $sp
@@ -687,7 +791,7 @@
 
         seth tmp $zero
         andi tmp tiles.nearbyBombsCountMask
-        nop .debugwrite "Dodaje licznik bomb LeftBot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        // nop .debugwrite "Dodaje licznik bomb LeftBot do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
         
     :checkLeft
         popw tileIndex $sp
@@ -711,7 +815,7 @@
 
         seth tmp $zero
         andi tmp tiles.nearbyBombsCountMask
-        nop .debugwrite "Dodaje licznik bomb Left do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
+        // nop .debugwrite "Dodaje licznik bomb Left do pola o id: {tileIndex}. Ma juz w sumie {tmp} bomb"
 
     :continue
         subi bombsCount 1

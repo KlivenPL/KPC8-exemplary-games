@@ -9,7 +9,7 @@
             "request": "attach",
             "name": "Debug readme.md",
             //"sourceFilePath": "${file}",
-            "pauseAtEntry": true,
+            "pauseAtEntry": false,
             "trace": false,
             "debuggerAddress": "127.0.0.1",
             "debuggerPort": "32137"

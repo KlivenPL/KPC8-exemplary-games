@@ -9,6 +9,7 @@
     .insertmodule "./src/MainMenu.kpc"
     .insertmodule "./src/Game.kpc"
     .insertmodule "./src/Grid.kpc"
+    .insertmodule "./src/Gui.kpc"
 
     .setaddress 0xF000
     .binfile menuTmPtr 960 "./Tilemap/MenuTilemap.kpcbin"
