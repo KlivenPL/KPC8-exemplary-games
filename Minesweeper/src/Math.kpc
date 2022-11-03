@@ -4,6 +4,7 @@
     .exportregion div
     .exportregion getRandomValue
     .exportregion random
+    .exportregion srl16
 
 *random
     .defnum seedPtr 0x08
@@ -23,7 +24,7 @@
        // .debugwrite "DEBUG WRITE XDDDD rA: {rA} $a1: {$a1}"
         set rA $a1
        // .debugwrite "DEBUG WRITE XDDDD rA: {rA} $a1: {$a1}"
-      //  .debugwrite "[{%time%}] ram at 2: {%ram(2)%}, ram at sp: {%ram($sp)%}, ram at 0xF43D: {%ram(0xF43D)%} {%ram(0xF43E)%} {%ram(0xF43F)%} {%ram(0xF440)%}"
+      //  .debugwrite "[{%time%}] ram at 2: {%ram(2)%}, ram at sp: {%ram($sp)%}, ram at 0xF660: {%ram(0xF660)%} {%ram(0xF43E)%} {%ram(0xF43F)%} {%ram(0xF440)%}"
         set rB $a2
         seti rResult 0
 
@@ -101,6 +102,8 @@
     .defreg q $t2
     .defreg tmp $t3
 
+    sethi d 0
+
     :main
         pushw r $sp
         pushw q $sp
@@ -128,6 +131,32 @@
         popw q $sp
         popw r $sp
         jr $ra
+
+*srl16
+    .defreg a $a1
+    .defreg tmp $t1
+    .defreg tmp2 $t2
+    .defreg lsbHi $t3
+
+    :main
+        setw tmp a
+        seti a 1
+
+        srl tmp tmp $zero
+        setw tmp2 tmp
+        swaploh tmp tmp2
+        and lsbHi tmp a
+        srl tmp tmp $zero
+        setw tmp2 tmp
+        swaploh tmp tmp2
+        add lsbHi lsbHi $zero
+        jzfl clear
+        seti lsbHi 0x80
+        or tmp tmp lsbHi
+    :clear
+        setw $rt tmp
+        jr $ra
+
 
 // a1 = bit-length
 *getRandomValue

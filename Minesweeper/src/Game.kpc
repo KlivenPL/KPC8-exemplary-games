@@ -2,7 +2,7 @@
     .exportregion initialize
 
 *cursor
-    .defnum spritePtr 0xF43D
+    .defnum spritePtr 0xF660
     .defnum posXGridPtr 0x10
     .defnum posYGridPtr 0x11
 
@@ -30,29 +30,8 @@
         sbext rValue rAddress
 
 *setGamePalette
-    .defnum nPaletteAddr 0xF3FC
-    .defreg rPalette $t1
-    .defreg rOffset $t2
-    .defreg rValue $t3
-
     :main
-        setwi rPalette nPaletteAddr
-
-        .defcolorhex colBlack "#000000"
-        setwi rValue colBlack
-        pushw rValue rPalette
-
-        .defcolorhex colWhite "#FFFFFF"
-        setwi rValue colWhite
-        pushw rValue rPalette
-
-        .defcolorhex colRed "#00FF00"
-        setwi rValue colRed
-        pushw rValue rPalette
-
-        .defcolorhex colBlue "#5FB0B7"
-        setwi rValue colBlue
-        pushw rValue rPalette
+        jasl Grid.tileColors.main $ra
 
 *setGameTilemap
     .defreg rValue $t1 
@@ -76,7 +55,7 @@
         jl loop
 
 *paintGameSprites
-    .defnum nOemAddr 0xF43D
+    .defnum nOemAddr 0xF660
     .defnum nSelectorATileId 164
     .defnum nSelectorBTileId 165
     .defnum nSelectorCTileId 181

@@ -4,6 +4,7 @@
     .exportregion getTileIdByGridPos
     .exportregion paintGlobalTile 
     .exportregion revealTile
+    .exportregion tileColors
 
 *size
     .defnum x 16
@@ -17,6 +18,8 @@
 *tiles
     .defnum basePtr 0x60
     .defnum baseBgPtr 0xF000 // pointer to ram background
+    .defnum baseBgAttributePtr 0xF3C0 // pointer to ram attribute table
+    .defnum baseBgPalettePtr 0xF5E0 // pointer to ram first palette
     .defnum tileStructSize 1
 
     .defnum tileDataOffset 0 // byte
@@ -30,6 +33,61 @@
     .defnum isBombMask 0b01000000
     .defnum isFlagMask 0b00100000
     .defnum isRevealedMask 0b00010000
+
+*tileColors
+    .defnum numberPalettesBasePtr 0x200
+    .defnum bgPaletteBasePtr 0xF5E0
+
+    .defcolorhex bgColor "#DDDDDD"
+
+    .defnum n0Palette 0x00      .defcolorhex n0ColorA "#BBBBBB" .defcolorhex n0ColorB "#7F7F7F" .defcolorhex n0ColorC "#222222"
+    .defnum n1Palette 0x11      .defcolorhex n1ColorA "#003973" .defcolorhex n1ColorB "#4AB5CE" .defcolorhex n1ColorC "#222222"
+    .defnum n2Palette 0x22      .defcolorhex n2ColorA "#215A10" .defcolorhex n2ColorB "#5ACE52" .defcolorhex n2ColorC "#222222"
+    .defnum n3Palette 0x33      .defcolorhex n3ColorA "#6B0010" .defcolorhex n3ColorB "#E7639C" .defcolorhex n3ColorC "#222222"
+    .defnum n4Palette 0x44      .defcolorhex n4ColorA "#42007B" .defcolorhex n4ColorB "#A55AFF" .defcolorhex n4ColorC "#222222"
+    .defnum n5Palette 0x55      .defcolorhex n5ColorA "#001084" .defcolorhex n5ColorB "#5A8CFF" .defcolorhex n5ColorC "#222222"
+    .defnum n6Palette 0x66      .defcolorhex n6ColorA "#4F3500" .defcolorhex n6ColorB "#CE9C29" .defcolorhex n6ColorC "#222222"
+    .defnum n7Palette 0x77      .defcolorhex n7ColorA "#D64AFF" .defcolorhex n7ColorB "#942994" .defcolorhex n7ColorC "#222222"
+    .defnum n8Palette 0x88      .defcolorhex n8ColorA "#600000" .defcolorhex n8ColorB "#9C1042" .defcolorhex n8ColorC "#222222"
+
+    .defnum flagPalette 0x99    .defcolorhex flagColorA "#DE7B52" .defcolorhex flagColorB "#222222" .defcolorhex flagColorC "#222222"
+    .defnum bombPalette 0xAA    .defcolorhex bombColorA "#DE7B52" .defcolorhex bombColorB "#222222" .defcolorhex bombColorC "#7F7F7F"
+
+    :main
+        nop
+
+    .defreg numberPalettesPtr $t1
+    :initializeNumberPalettes
+        setwi numberPalettesPtr numberPalettesBasePtr
+
+        pushbi n0Palette numberPalettesPtr
+        pushbi n1Palette numberPalettesPtr
+        pushbi n2Palette numberPalettesPtr
+        pushbi n3Palette numberPalettesPtr
+        pushbi n4Palette numberPalettesPtr
+        pushbi n5Palette numberPalettesPtr
+        pushbi n6Palette numberPalettesPtr
+        pushbi n7Palette numberPalettesPtr
+        pushbi n8Palette numberPalettesPtr
+    
+    .defreg bgPalettePtr $t1
+    :loadPalettes
+        setwi bgPalettePtr bgPaletteBasePtr
+
+        pushwi bgColor bgPalettePtr     pushwi n0ColorA bgPalettePtr     pushwi n0ColorB bgPalettePtr    pushwi n0ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi n1ColorA bgPalettePtr     pushwi n1ColorB bgPalettePtr    pushwi n1ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi n2ColorA bgPalettePtr     pushwi n2ColorB bgPalettePtr    pushwi n2ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi n3ColorA bgPalettePtr     pushwi n3ColorB bgPalettePtr    pushwi n3ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi n4ColorA bgPalettePtr     pushwi n4ColorB bgPalettePtr    pushwi n4ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi n5ColorA bgPalettePtr     pushwi n5ColorB bgPalettePtr    pushwi n5ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi n6ColorA bgPalettePtr     pushwi n6ColorB bgPalettePtr    pushwi n6ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi n7ColorA bgPalettePtr     pushwi n7ColorB bgPalettePtr    pushwi n7ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi n8ColorA bgPalettePtr     pushwi n8ColorB bgPalettePtr    pushwi n8ColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi flagColorA bgPalettePtr   pushwi flagColorB bgPalettePtr  pushwi flagColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi bombColorA bgPalettePtr   pushwi bombColorB bgPalettePtr  pushwi bombColorC bgPalettePtr
+
+    :clear
+        jr $ra
     
 *getTilePtrById
     :main
@@ -91,7 +149,9 @@
 
 // paints any 2x2 tile, not only game fields
 *paintGlobalTile
+    .defreg newPaletteId $t4 // passed by $sp
     :main
+        popb newPaletteId $sp
         pushw $ra $sp
         .defreg tileX $a1
         .defreg tileY $a2
@@ -120,7 +180,7 @@
         jasl Math.mul16.main $ra // (tileY * globalX_2x2 + tileX) * 2
 
         setw tmpTilemapId $rt
-       // nop .debugwrite "(tileY * globalX_2x2 + tileX) * 2 = {tmpTilemapId}"
+        pushw tmpTilemapId $sp
 
         setw tmpSSId SSId
         sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
@@ -136,6 +196,27 @@
         addwi tmpSSId 1
         addwi tmpTilemapId 1
         sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
+
+    :setPalette
+        popw attribId $sp // set attribId to tmpTilemapId
+        .defreg attribId $t1
+        .defreg currPaletteId $t2
+
+        // get attribId by dividing tmpTilemapId/2
+        setw $a1 attribId
+        jasl Math.srl16.main $ra
+        setw attribId $rt
+
+        // get current paletteId
+        lbramoi currPaletteId attribId tiles.baseBgAttributePtr
+
+        // paint higher half of tile
+        set currPaletteId newPaletteId
+        sbramoi currPaletteId attribId tiles.baseBgAttributePtr
+
+        // paint lower half of tile
+        addwi attribId 20
+        sbramoi currPaletteId attribId tiles.baseBgAttributePtr
 
     :clear
         popb tileY $sp
@@ -216,6 +297,7 @@
         // $a1 already set to tileX
         // $a2 already set to tileY
         seti $a3 tiles.bombSSId
+        pushbi tileColors.bombPalette $sp
         jasl paintGlobalTile.main $ra
         
         jl clear
@@ -226,9 +308,13 @@
         sbramoi tileData tilePtr tiles.tileDataOffset
 
         // given field is a number. in chain reveal only 0s and fields adjacent do 0s should be revealed
-        andi tileData tiles.nearbyBombsCountMask // remove 4 MSB of tile data, to get nearby bombs count
+        andwi tileData tiles.nearbyBombsCountMask // leave only 4 LSB of tile data, to get nearby bombs count
         add tileData tileData $zero // test nearby bombs count
         jzfl revealZero // if bombs count is 0, reveal it
+
+        // get the color palette of the tile
+        .defreg tileColorPalette $t3
+        lbramoi tileColorPalette tileData tileColors.numberPalettesBasePtr
 
         // given field is not a 0, but other number. reveal it and return.
         addi tileData -1 // -1, as number1SSId starts from 1, not 0
@@ -238,6 +324,7 @@
         // $a1 already set to tileX
         // $a2 already set to tileY
         set $a3 tileData // a3 = number0 sprite + bombs count * 2
+        pushb tileColorPalette $sp
         jasl paintGlobalTile.main $ra
 
         jl clear
@@ -249,6 +336,7 @@
         // $a1 already set to tileX
         // $a2 already set to tileY
         seti $a3 tiles.number0SSId
+        pushbi tileColors.n0Palette $sp
         jasl paintGlobalTile.main $ra
 
         // start the chain reaction

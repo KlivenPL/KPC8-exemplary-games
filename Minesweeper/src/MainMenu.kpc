@@ -2,7 +2,7 @@
     .exportregion initialize
 
 *menuCursor
-    .defnum spritePtr 0xF43D
+    .defnum spritePtr 0xF660
     .defnum cursorStatePtr 0x10
 
 
@@ -29,29 +29,30 @@
         sbext rValue rAddress
 
 *setMenuPalette
-    .defnum nPaletteAddr 0xF3FC
+    .defnum nBgPaletteAddr 0xF5E0
+    .defnum nSpritePaletteAddr 0xF5A0
     .defreg rPalette $t1
-    .defreg rOffset $t2
-    .defreg rValue $t3
 
     :main
-        setwi rPalette nPaletteAddr
+        setwi rPalette nBgPaletteAddr
 
         .defcolorhex colBlack "#000000"
-        setwi rValue colBlack
-        pushw rValue rPalette
-
         .defcolorhex colWhite "#FFFFFF"
-        setwi rValue colWhite
-        pushw rValue rPalette
-
         .defcolorhex colRed "#00FF00"
-        setwi rValue colRed
-        pushw rValue rPalette
-
         .defcolorhex colBlue "#5FB0B7"
-        setwi rValue colBlue
-        pushw rValue rPalette
+
+        pushwi colBlack rPalette
+        pushwi colWhite rPalette
+        pushwi colRed rPalette
+        pushwi colBlue rPalette
+
+        setwi rPalette nSpritePaletteAddr
+        
+        pushwi colBlack rPalette
+        pushwi colWhite rPalette
+        pushwi colRed rPalette
+        pushwi colBlue rPalette
+
 
 *setMenuTilemap
     .defnum nTilemapAddr 0xF000
@@ -72,7 +73,7 @@
         jwnotzl rOffset copyFromRomToRamLoop
 
 *paintMenuSprites
-    .defnum nOemAddr 0xF43D
+    .defnum nOemAddr 0xF660
     .defnum nSelectorTileId 98
     .defnum nSelectorPosX 0x1088
     .defnum nSelectorPosY 112

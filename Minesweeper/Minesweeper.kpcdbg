@@ -2646,7 +2646,7 @@
       "f": "D:\\Users\\oskar\\Documents\\PW\\INZ\\Minesweeper\\src\\Math.kpc",
       "l": 24,
       "addr": 64245,
-      "v": "[{%time%}] ram at 2: {%ram(2)%}, ram at sp: {%ram($sp)%}, ram at 0xF43D: {%ram(0xF43D)%} {%ram(0xF43E)%} {%ram(0xF43F)%} {%ram(0xF440)%}"
+      "v": "[{%time%}] ram at 2: {%ram(2)%}, ram at sp: {%ram($sp)%}, ram at 0xF660: {%ram(0xF660)%} {%ram(0xF43E)%} {%ram(0xF43F)%} {%ram(0xF440)%}"
     },
     {
       "$type": "Assembler.DebugData.ExecutableSymbol, Assembler",
