@@ -6,6 +6,8 @@
     .exportregion revealTile
     .exportregion tileColors
     .exportregion toggleFlag
+    .exportregion tiles
+    .exportregion setPaletteGlobalTile
 
 *size
     .defnum x 16
@@ -226,6 +228,38 @@
         popw $ra $sp
         jr $ra
 
+*setPaletteGlobalTile
+    .defreg tileX $a1
+    .defreg tileY $a2
+    .defreg newPaletteId $a3
+    :main
+        pushw $ra $sp
+        pushw $fp $sp
+        setw $fp $sp
+
+    .defreg attribId $t1
+    .defreg paletteId $t2
+    :logic
+        setw attribId tileX
+        setwi $a1 size.globalX_2x2
+        // a2 already set to tileY
+        jasl Math.mul16.main $ra // tileY * globalX_2x2
+        addw attribId attribId $rt
+
+        set paletteId newPaletteId
+        // paint upper half of tile
+        sbramoi paletteId attribId tiles.baseBgAttributePtr
+
+        // paint lower half of tile
+        addwi attribId 20
+        sbramoi paletteId attribId tiles.baseBgAttributePtr
+        
+    :return
+        setw $sp $fp
+        popw $fp $sp
+        popw $ra $sp
+        jr $ra
+
 *toggleFlag
     :main
         pushw $ra $sp
@@ -291,6 +325,9 @@
         popb tileData $sp
         sbramoi tileData tilePtr tiles.tileDataOffset
 
+        andi tileData tiles.isBombMask
+        pushb tileData $sp
+
         // a1 already set
         // a2 already set
         seti $a3 tiles.flagSSId
@@ -298,6 +335,7 @@
         jasl paintGlobalTile.main $ra
 
         seti $a1 1
+        popb $a2 $sp // pop tileData (was bomb flagged)
         jasl Gui.addFlags.main $ra
 
         jl clear 
@@ -308,6 +346,9 @@
         popb tileData $sp
         sbramoi tileData tilePtr tiles.tileDataOffset
 
+        andi tileData tiles.isBombMask
+        pushb tileData $sp
+
         // a1 already set
         // a2 already set
         seti $a3 tiles.coveredSSId
@@ -315,6 +356,7 @@
         jasl paintGlobalTile.main $ra
 
         seti $a1 -1
+        popb $a2 $sp // pop tileData (was bomb flagged)
         jasl Gui.addFlags.main $ra
 
     :clear

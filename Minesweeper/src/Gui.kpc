@@ -8,6 +8,7 @@
     .defnum flagsCountPtr 0x251 // byte
     .defnum timePtr 0x252 // word
     .defnum scorePtr 0x254 // word
+    .defnum flaggedBombsCountPtr 0x256 // byte
 
 *frontendStats
     .defnum number0SSPtr 16
@@ -87,34 +88,79 @@
         sbramoi $t2 $zero frontendStats.bombsCountDigit0Ptr
         sbramoi $t3 $zero frontendStats.bombsCountDigit1Ptr
 
+        // set gui background
+        // for (byte tileX = 16; tileX < 20; tileX++)
+        .defreg tileX $s1; seti tileX 16;
+        :forLooptileXCheck
+            cmpsubi tileX 20
+            jnfl forLooptileXLogic
+            jl forLooptileXExit
+        
+        :forLooptileXLogic
+            // for (byte tileY = 0; tileY < 12; tileY++)
+            seti tileY 0; .defreg tileY $s2;
+            :forLooptileYCheck
+                cmpsubi tileY 12
+                jnfl forLooptileYLogic
+                jl forLooptileYExit
+            
+            :forLooptileYLogic
+                set $a1 $s1
+                set $a2 $s2
+                seth $a1 $zero
+                seth $a2 $zero
+                nop .debugwrite "({$a1}, {$a2})"
+                seti $a3 Grid.tileColors.flagPalette
+                jasl Grid.setPaletteGlobalTile.main $ra
+
+
+            
+                addi tileY 1
+                jl forLooptileYCheck
+            
+            :forLooptileYExit
+                nop // TODO
+        
+            addi tileX 1
+            jl forLooptileXCheck
+        
+        :forLooptileXExit
+            nop // TODO
+
     :clear
         popw $ra $sp
         jr $ra
 
 *addFlags
-    .defreg deltaFlagsCount $a1
+    .defreg deltaFlagsCountArg $a1
+    .defreg wasBombFlaggedArg $a2
     :main
-        pushw $fp $sp
         pushw $ra $sp
+        pushw $fp $sp
         setw $fp $sp
+
+        .defnum deltaFlagsCountOffset 0
+        .defnum wasBombFlaggedOffset 1
+
+        pushb deltaFlagsCountArg $sp
+        pushb wasBombFlaggedArg $sp
 
         .defreg flagCount $t1
         .defreg bombCount $t2
 
         lbrami flagCount stats.flagsCountPtr
-        add flagCount flagCount deltaFlagsCount
+        add flagCount flagCount deltaFlagsCountArg
         sbramoi flagCount $zero stats.flagsCountPtr
 
     :displayFrontendBombsLeft
         lbrami bombCount stats.bombsCountPtr
         sub bombCount bombCount flagCount
-        
-        pushb $zero $sp
-        pushb $zero $sp
-        pushb $zero $sp
 
         set $a1 bombCount
-        setw $a2 $fp
+        setw $a2 $sp
+        pushb $zero $sp
+        pushb $zero $sp
+        pushb $zero $sp
         jasl byteToDec.main $ra
         .defreg tens $t1
         .defreg ones $t2
@@ -128,7 +174,23 @@
         sbramoi tens $zero frontendStats.bombsCountDigit0Ptr
         sbramoi ones $zero frontendStats.bombsCountDigit1Ptr
 
+    .defreg deltaFlagsCount $t1
+    .defreg wasBombFlagged $t2
+    .defreg flaggedBombsCount $t3
+    :changeFlaggedBombsCount
+        lbramoi wasBombFlagged $fp wasBombFlaggedOffset
+        andi wasBombFlagged 0xff
+        jzfl clear
+
+        // update flagged bombs count
+        lbramoi deltaFlagsCount $fp deltaFlagsCountOffset
+        lbrami flaggedBombsCount stats.flaggedBombsCountPtr
+        add flaggedBombsCount flaggedBombsCount deltaFlagsCount
+        sbramoi flaggedBombsCount $zero stats.flaggedBombsCountPtr
+        nop .debugwrite "Oznaczone prawdziwe bomby: {flaggedBombsCount}"
+
     :clear
-        popw $ra $sp
+        setw $sp $fp
         popw $fp $sp
+        popw $ra $sp
         jr $ra

@@ -64,12 +64,8 @@
         setw rB $a2
         setw rResult $zero
 
-        addi $t1 0
-        jzfl continue
-
-        addi $t2 0
-        jzfl continue
-        //irrdis
+        jwzl $t1 continue
+        jwzl $t2 continue
 
     :loop
         addw rResult rA rResult
