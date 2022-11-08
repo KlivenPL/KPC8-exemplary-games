@@ -64,6 +64,8 @@
     .defreg bombsCountArg $a1
     :main
         pushw $ra $sp
+        pushw $s1 $sp
+        pushw $s2 $sp
         setw $fp $sp
         .defreg bombsCount $t1
         set bombsCount bombsCountArg
@@ -128,6 +130,8 @@
             nop // TODO
 
     :clear
+        popw $s2 $sp
+        popw $s1 $sp
         popw $ra $sp
         jr $ra
 

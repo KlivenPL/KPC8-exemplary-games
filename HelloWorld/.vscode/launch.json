@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "kpcdbg",
+            "request": "attach",
+            "name": "Debug hellow world",
+            "pauseAtEntry": false,
+            "trace": false,
+            "debuggerAddress": "127.0.0.1",
+            "debuggerPort": "32137"
+        }
+    ]
+}
