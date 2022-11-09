@@ -54,7 +54,7 @@
     .defnum n7Palette 0x77      .defcolorhex n7ColorA "#D64AFF" .defcolorhex n7ColorB "#942994" .defcolorhex n7ColorC "#222222"
     .defnum n8Palette 0x88      .defcolorhex n8ColorA "#600000" .defcolorhex n8ColorB "#9C1042" .defcolorhex n8ColorC "#222222"
 
-    .defnum flagPalette 0x99    .defcolorhex flagColorA "#DE7B52" .defcolorhex flagColorB "#222222" .defcolorhex flagColorC "#222222"
+    .defnum flagPalette 0x99    .defcolorhex flagColorA "#DE7B52" .defcolorhex flagColorB "#BBBBBB" .defcolorhex flagColorC "#222222"
     .defnum bombPalette 0xAA    .defcolorhex bombColorA "#DE7B52" .defcolorhex bombColorB "#222222" .defcolorhex bombColorC "#7F7F7F"
 
     :main
@@ -180,11 +180,11 @@
         jasl Math.mul16.main $ra // tileY * globalX_2x2
 
         addw $a1 tmpTilemapId $rt
+        pushw $a1 $sp // push attribId
         setwi $a2 2
         jasl Math.mul16.main $ra // (tileY * globalX_2x2 + tileX) * 2
 
         setw tmpTilemapId $rt
-        pushw tmpTilemapId $sp
 
         setw tmpSSId SSId
         sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
@@ -201,15 +201,10 @@
         addwi tmpTilemapId 1
         sbramoi tmpSSId tmpTilemapId tiles.baseBgPtr
 
+    .defreg attribId $t1
+    .defreg currPaletteId $t2
     :setPalette
-        popw attribId $sp // set attribId to tmpTilemapId
-        .defreg attribId $t1
-        .defreg currPaletteId $t2
-
-        // get attribId by dividing tmpTilemapId/2
-        setw $a1 attribId
-        jasl Math.srl16.main $ra
-        setw attribId $rt
+        popw attribId $sp // pop attribId
 
         // get current paletteId
         lbramoi currPaletteId attribId tiles.baseBgAttributePtr
@@ -440,6 +435,9 @@
         seti $a3 tiles.bombSSId
         pushbi tileColors.bombPalette $sp
         jasl paintGlobalTile.main $ra
+
+        setwi $a1 @const.youLoseTextPtr
+        jasl Gui.showEndGameBox.main $ra
         
         jl clear
 

@@ -2,6 +2,7 @@
     .exportregion initialize
     .exportregion stats
     .exportregion addFlags
+    .exportregion showEndGameBox
 
 *stats
     .defnum bombsCountPtr 0x250 // byte
@@ -60,6 +61,36 @@
         popw $ra $sp
         jr $ra
 
+
+*showEndGameBox
+    .defreg textPtr $a1
+    :main
+        pushw $ra $sp
+        pushw $fp $sp
+        setw $fp $sp
+
+    .defreg letter $t1
+    .defreg i $t2
+    :logic
+        setwi i 0
+
+    .defnum tilemapPtr 0xF000
+    :writeTextLoop
+        lbromo letter i textPtr
+        jwzl letter return
+
+        subi letter 32
+        sbramoi letter i tilemapPtr
+
+        addi i 1
+        jl writeTextLoop
+
+    :return
+        setw $sp $fp
+        popw $fp $sp
+        popw $ra $sp
+        jr $ra
+
 *initialize
     .defreg bombsCountArg $a1
     :main
@@ -115,8 +146,6 @@
                 seti $a3 Grid.tileColors.flagPalette
                 jasl Grid.setPaletteGlobalTile.main $ra
 
-
-            
                 addi tileY 1
                 jl forLooptileYCheck
             
@@ -145,9 +174,11 @@
 
         .defnum deltaFlagsCountOffset 0
         .defnum wasBombFlaggedOffset 1
+        .defnum bombCountOffset 2
 
         pushb deltaFlagsCountArg $sp
         pushb wasBombFlaggedArg $sp
+        pushbi 0 $sp
 
         .defreg flagCount $t1
         .defreg bombCount $t2
@@ -158,6 +189,7 @@
 
     :displayFrontendBombsLeft
         lbrami bombCount stats.bombsCountPtr
+        sbramoi bombCount $fp bombCountOffset
         sub bombCount bombCount flagCount
 
         set $a1 bombCount
@@ -192,6 +224,15 @@
         add flaggedBombsCount flaggedBombsCount deltaFlagsCount
         sbramoi flaggedBombsCount $zero stats.flaggedBombsCountPtr
         nop .debugwrite "Oznaczone prawdziwe bomby: {flaggedBombsCount}"
+
+        lbramoi bombCount $fp bombCountOffset
+        sub $ass flaggedBombsCount bombCount
+        jzfl allBombsFlagged
+        jl clear
+
+    :allBombsFlagged
+        setwi $a1 @const.youWinTextPtr
+        jasl showEndGameBox.main $ra
 
     :clear
         setw $sp $fp

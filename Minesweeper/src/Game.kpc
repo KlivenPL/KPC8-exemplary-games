@@ -31,7 +31,17 @@
         sbext rValue rAddress
 
 *setGamePalette
+    .defnum spritePaletteAddr 0xF5A0
+    .defreg spritePalettePtr $t1
+    .defcolorrgb spriteBgColor 0 0 0
+    .defcolorrgb spriteColor1 255 0 0
+    .defcolorrgb spriteColor2 0 0 255
+    .defcolorrgb spriteColor3 0 255 0
     :main
+        // set the palette for the cursor
+        setwi spritePalettePtr spritePaletteAddr
+        pushwi spriteBgColor spritePalettePtr     pushwi spriteColor1 spritePalettePtr     pushwi spriteColor2 spritePalettePtr    pushwi spriteColor3 spritePalettePtr
+
         jasl Grid.tileColors.main $ra
 
 *setGameTilemap
@@ -62,13 +72,13 @@
     .defnum nSelectorCTileId 181
     .defnum nSelectorDTileId 180
 
-    .defnum nSelectorAPosX 0x3000
+    .defnum nSelectorAPosX 0x1000
     .defnum nSelectorAPosY 0
-    .defnum nSelectorBPosX 0x3000
+    .defnum nSelectorBPosX 0x1000
     .defnum nSelectorBPosY 0
-    .defnum nSelectorCPosX 0x3000
+    .defnum nSelectorCPosX 0x1000
     .defnum nSelectorCPosY 0
-    .defnum nSelectorDPosX 0x3000
+    .defnum nSelectorDPosX 0x1000
     .defnum nSelectorDPosY 0
 
     .defreg rValue $t2
@@ -116,8 +126,8 @@
 *gameInitialization
     :main
         setwi $a1 cursor.spritePtr
-        seti $a2 5
-        seti $a3 10
+        seti $a2 0
+        seti $a3 0
         jasl moveSelector.main $ra
 
         popb $a1 $sp // restore difficultyLevel

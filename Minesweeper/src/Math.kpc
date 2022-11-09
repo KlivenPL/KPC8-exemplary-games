@@ -130,20 +130,17 @@
 *srl16
     .defreg a $a1
     .defreg tmp $t1
-    .defreg tmp2 $t2
-    .defreg lsbHi $t3
+    .defreg lsbHi $t2
 
     :main
         setw tmp a
         seti a 1
 
         srl tmp tmp $zero
-        setw tmp2 tmp
-        swaploh tmp tmp2
+        setloh tmp tmp
         and lsbHi tmp a
         srl tmp tmp $zero
-        setw tmp2 tmp
-        swaploh tmp tmp2
+        setloh tmp tmp
         add lsbHi lsbHi $zero
         jzfl clear
         seti lsbHi 0x80
@@ -151,7 +148,6 @@
     :clear
         setw $rt tmp
         jr $ra
-
 
 // a1 = bit-length
 *getRandomValue
@@ -176,12 +172,10 @@
       //  .debugwrite "rt: {$rt}"
         // srlw
         srl lfsr lfsr $zero
-        setw $ass lfsr
-        swaploh lfsr $ass
+        setloh lfsr lfsr
         and lsbHi lfsr one
         srl lfsr lfsr $zero
-        setw $ass lfsr
-        swaploh lfsr $ass
+        setloh lfsr lfsr
         add lsbHi lsbHi $zero
         jzfl galiosContinue
         seti $t2 0x80
@@ -193,12 +187,10 @@
 
         setwi $t2 0x00
         xor lfsr lfsr $t2
-        setw $t3 lfsr
-        swaploh lfsr $t3
+        setloh lfsr lfsr
         setwi $t2 0xB4
         xor lfsr lfsr $t2
-        setw $t3 lfsr
-        swaploh lfsr $t3
+        setloh lfsr lfsr
 
     :outputBitIsZero
         subi iterations 1

@@ -17,6 +17,9 @@
     .setaddress 0xF3C2
     .binfile gameTmPtr 960 "./Tilemap/GameTilemap.kpcbin"
 
+    .asciiz youWinTextPtr "You win!"
+    .asciiz youLoseTextPtr "You lose!"
+
 *@module mainModule
 
 *initialize
