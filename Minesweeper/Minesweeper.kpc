@@ -11,6 +11,9 @@
     .insertmodule "./src/Grid.kpc"
     .insertmodule "./src/Gui.kpc"
 
+    .setmoduleaddress 0xFF00
+    .insertmodule "./src/TimerInterruptHandler.kpc"
+
     .setaddress 0xF000
     .binfile menuTmPtr 960 "./Tilemap/MenuTilemap.kpcbin"
 
@@ -25,7 +28,7 @@
 *initialize
 
     :main
-        setwi $sp 0xE000
+        setwi $sp 0x1000
         jl MainMenu.initialize.main
 
 

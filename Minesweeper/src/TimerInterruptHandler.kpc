@@ -1,0 +1,19 @@
+*@module TimerInterruptHandler
+
+*handleTimerInterrupt
+    :main
+        pushw $ass $sp
+        pushw $a1 $sp
+        pushw $ra $sp
+
+        lwramoi $t1 $zero Gui.stats.timePtr
+        addwi $t1 1
+        swramoi $t1 $zero Gui.stats.timePtr
+        //nop .debugwrite "Current time: {$t1}"
+        setw $a1 $t1
+        jasl Gui.setFrontendTime.main $ra
+
+        popw $ra $sp
+        popw $a1 $sp
+        popw $ass $sp
+        irrret

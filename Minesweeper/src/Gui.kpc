@@ -3,6 +3,7 @@
     .exportregion stats
     .exportregion addFlags
     .exportregion showEndGameBox
+    .exportregion setFrontendTime
 
 *stats
     .defnum bombsCountPtr 0x250 // byte
@@ -16,6 +17,12 @@
     .defnum bombsCountDigit0Ptr 0xF139 // 0xF000 + 313
     .defnum bombsCountDigit1Ptr 0xF13A // 0xF000 + 314
 
+    // time MM:SS
+    .defnum timeDigitS0Ptr 0xF1DD // 0xF000 + 473
+    .defnum timeDigitS1Ptr 0xF1DC // 0xF000 + 474
+    .defnum timeDigitM0Ptr 0xF1DA // 0xF000 + 476
+    .defnum timeDigitM1Ptr 0xF1D9 // 0xF000 + 477
+    
 *byteToDec
     .defreg value $a1
     .defreg resultPtrArg $a2 // pointer to byte[3]
@@ -61,6 +68,92 @@
         popw $ra $sp
         jr $ra
 
+*setFrontendTime // interrupt safe
+    .defreg newTimeArg $a1
+    .defreg newTime $s1
+    :main
+        pushw $ra $sp
+        pushw $fp $sp
+        
+        pushw $t1 $sp
+        pushw $t2 $sp
+        pushw $t3 $sp
+        pushw $t4 $sp
+        pushw $s1 $sp
+        pushw $s2 $sp
+        pushw $s3 $sp
+        pushw $a1 $sp
+        pushw $a2 $sp
+        pushw $a3 $sp
+        pushw $rt $sp
+
+        setw $fp $sp
+
+    .defnum sDisp0Offset 0 // byte
+    .defnum sDisp1Offset 1 // byte
+    .defnum mDisp0Offset 2 // byte
+    .defnum mDisp1Offset 3 // byte
+    :initialize
+        setw newTime newTimeArg
+        addwi $sp 4
+
+    .defreg time $t1
+    .defreg tmpVar2 $t2
+    :logic
+        // divide the seconds by 60 to get the minutes
+        setw $a1 newTime
+        seti $a2 60 
+        jasl Math.div16.main $ra
+        // now, $rt_lo = minutes, $rt_hi = seconds
+
+        setloh time $rt // store the time and set time_lo to seconds 
+
+        set $a1 $rt
+        seti $a2 2
+        setwi tmpVar2 mDisp0Offset
+        addw $a3 $fp tmpVar2
+        jasl Math.binToDec.main $ra
+
+        set $a1 time
+        seti $a2 2
+        setwi tmpVar2 sDisp0Offset
+        addw $a3 $fp tmpVar2
+        jasl Math.binToDec.main $ra
+
+        lbramoi time $fp mDisp0Offset
+        addi time 16
+        sbramoi time $zero frontendStats.timeDigitM0Ptr
+
+        lbramoi time $fp mDisp1Offset
+        addi time 16
+        sbramoi time $zero frontendStats.timeDigitM1Ptr
+
+        lbramoi time $fp sDisp0Offset
+        addi time 16
+        sbramoi time $zero frontendStats.timeDigitS0Ptr
+
+        lbramoi time $fp sDisp1Offset
+        addi time 16
+        sbramoi time $zero frontendStats.timeDigitS1Ptr
+
+    :return
+        setw $sp $fp
+
+        popw $rt $sp
+        popw $a3 $sp
+        popw $a2 $sp
+        popw $a1 $sp
+        popw $s3 $sp
+        popw $s2 $sp
+        popw $s1 $sp
+        popw $t4 $sp
+        popw $t3 $sp
+        popw $t2 $sp
+        popw $t1 $sp
+
+        popw $fp $sp
+        popw $ra $sp
+        jr $ra
 
 *showEndGameBox
     .defreg textPtr $a1
@@ -72,6 +165,7 @@
     .defreg letter $t1
     .defreg i $t2
     :logic
+        setwi letter 0
         setwi i 0
 
     .defnum tilemapPtr 0xF000

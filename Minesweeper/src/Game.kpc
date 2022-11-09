@@ -15,7 +15,7 @@
 
 *setupGameTimer
     .defnum nTimerAddr 0x0
-    .defnum nTimerIrrConf 0xF4
+    .defnum nTimerIrrConf 0xFF // translates to 0x0F interrupt code
     .defnum nTimerFreqConf 1
 
     .defreg rAddress $t1
@@ -132,6 +132,8 @@
 
         popb $a1 $sp // restore difficultyLevel
         jasl Grid.generate.main $ra
+
+        irren
 
 *mainGameLoop
     :main

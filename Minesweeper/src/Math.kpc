@@ -2,9 +2,11 @@
     .exportregion mul
     .exportregion mul16
     .exportregion div
+    .exportregion div16
     .exportregion getRandomValue
     .exportregion random
     .exportregion srl16
+    .exportregion binToDec
 
 *random
     .defnum seedPtr 0x08
@@ -82,6 +84,47 @@
         popw $t1 $SP
         jr $ra
 
+*binToDec
+    .defreg value $a1
+    .defreg decimalPlacesArg $a2
+    .defreg resultPtrArg $a3
+
+    :main
+        pushw $ra $sp
+        pushw $s1 $sp
+        pushw $s2 $sp
+        .defreg resultPtr $s1
+        .defreg decimalPlaces $s2
+
+        seth value $zero
+        setw decimalPlaces decimalPlacesArg
+        setw resultPtr resultPtrArg
+
+    // for (byte i = 0; i < decimalPlaces; i++)
+    .defreg i $t2; seti i 0;
+    :forLoopiCheck
+        sub $ass i decimalPlaces
+        jnfl forLoopiLogic
+        jl clear
+    
+    :forLoopiLogic
+        set $a1 value
+        seti $a2 10 
+        jasl div.main $ra
+
+        set value $rt
+        setloh $rt $rt
+        sbramo $rt resultPtr i
+    
+        addi i 1
+        jl forLoopiCheck
+
+    :clear
+        popw $s2 $sp
+        popw $s1 $sp
+        popw $ra $sp
+        jr $ra
+
 // R to jest reminder czyli mod
 // R := N
 // Q := 0
@@ -115,6 +158,42 @@
 
         set r tmp
         addi q 1
+
+        jl loop
+
+    :exit
+        setloh $rt r
+        set $rt q
+        
+        popw tmp $sp
+        popw q $sp
+        popw r $sp
+        jr $ra
+
+*div16
+    .defreg n $a1
+    .defreg d $a2 // 8 bit ale pierwsze 8 bit muszą być 0!!!
+    .defreg r $t1
+    .defreg q $t2
+    .defreg tmp $t3
+
+    :main
+        pushw r $sp
+        pushw q $sp
+        pushw tmp $sp
+
+        sethi d 0
+        setw r n
+        setw q $zero
+        setw tmp $zero
+        negw d d
+
+    :loop
+        addw tmp r d
+        jwnl tmp exit
+
+        setw r tmp
+        addwi q 1
 
         jl loop
 
