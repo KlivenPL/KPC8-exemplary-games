@@ -5,27 +5,7 @@
 
 *@module Main                                               // Beginning of Main module (could be named arbitrarily, however it must be defined after @const region).
 
-*helloWorld                                                 // Beginning of helloWorld region.
-    .defnum tilemapPtr 0xF000                               // Define compile-time word (16-bits) constant that stores the address of the tilemap. Tilemap is constant address used by graphics card, where background tiles are stored.
-
-    .defreg letter $t1                                      // Define compile-time alias for $t1 register.
-    .defreg i $t2                                           // Define compile-time alias for $t2 register.
-    :main                                                   // Beginning of "main" label. It may be called arbitraritly, but conventionally every region, that has executable code, should have an entry point named "main".
-        setw i $zero                                        // setw = Set Word. It sets all 16-bits of a register i ($t2) to 0.
-
-    :loop
-        lbromoi letter i @const.helloWorldPtr               // lbromoi = Load Byte (from) ROM (with) Offset (given as) Immediate. It sets the value of "letter" ($t1) to value loaded from ROM at (i + @const.helloWorldPtr).
-        nop .debugwrite "Loaded letter: \t{letter}"         // nop = No Operation - idles for 16 clock cycles. .debugwrite writes the loaded value of "letter" to the debug console (only when debugging). nop is needed to pin the .debugwrite command to an instruction.
-
-        jwzl letter setPalette.main                         // jwzl = Jump (if) Word (is) Zero (to a) Label. It jumps to label "main", located in "setPalette" region.
-
-        subi letter 32                                      // subi = Subtract Immediate (value). It subtracts 32 from "letter".
-        sbramoi letter i tilemapPtr                         // sbramoi = Store Byte (in) RAM (with) Offset (given as) Immediate. It stores the value "letter" in RAM address (i + tilemapPtr).
-
-        addi i 1                                            // addi = Add Immediate (value). It adds 1 to i.
-        jl loop                                             // jl = Jump Label. It jumps to label "loop" (located in current region - helloWorld).
-
-*setPalette                                                 // The end of helloWorld region and beginning of setPalette region.
+*setPalette                                                 // The beginning of setPalette region.
     .defnum bgPaletteAddr 0xF5E0                            // Define the compile-time word (16-bits) constant that points to the beginning of background palette address, used by the graphics card.
 
     .defcolorRGB black 0 0 0                                // Define the compile-time word (16-bits) that represents 15-bit color, converted from RGB32 values - (0, 0, 0) is the black color.
@@ -38,6 +18,27 @@
         pushwi black palettePtr                             // pushwi = Push Word Immediate. It stores the value black (2 bytes) at address given in palettePtr ($t1) register and then adds 2 to palettePtr ($t1)
         pushwi white palettePtr                             // pushwi = Push Word Immediate. It stores the value white (2 bytes) at address given in palettePtr ($t1) register and then adds 2 to palettePtr ($t1)
 
+*helloWorld                                                 // Beginning of helloWorld region.
+    .defnum tilemapPtr 0xF000                               // Define compile-time word (16-bits) constant that stores the address of the tilemap. Tilemap is constant address used by graphics card, where background tiles are stored.
+
+    .defreg letter $t1                                      // Define compile-time alias for $t1 register.
+    .defreg i $t2                                           // Define compile-time alias for $t2 register.
+    :main                                                   // Beginning of "main" label. It may be called arbitraritly, but conventionally every region, that has executable code, should have an entry point named "main".
+        setw letter $zero                                   // setw = Set Word. It sets all 16-bits of a register letter ($t1) to 0.
+        setw i $zero                                        // setw = Set Word. It sets all 16-bits of a register i ($t2) to 0.
+
+    :loop
+        lbromoi letter i @const.helloWorldPtr               // lbromoi = Load Byte (from) ROM (with) Offset (given as) Immediate. It sets the value of "letter" ($t1) to value loaded from ROM at (i + @const.helloWorldPtr).
+        nop .debugwrite "Loaded letter: \t{letter}"         // nop = No Operation - idles for 16 clock cycles. .debugwrite writes the loaded value of "letter" to the debug console (only when debugging). nop is needed to pin the .debugwrite command to an instruction.
+
+        jwzl letter endlessLoop                             // jwzl = Jump (if) Word (is) Zero (to a) Label. It jumps to label "main", located in "setPalette" region.
+
+        subi letter 32                                      // subi = Subtract Immediate (value). It subtracts 32 from "letter".
+        sbramoi letter i tilemapPtr                         // sbramoi = Store Byte (in) RAM (with) Offset (given as) Immediate. It stores the value "letter" in RAM address (i + tilemapPtr).
+
+        addi i 1                                            // addi = Add Immediate (value). It adds 1 to i.
+        jl loop                                             // jl = Jump Label. It jumps to label "loop" (located in current region - helloWorld).
+
     :endlessLoop                                            // The beginning of endlessLoop label
         jl endlessLoop                                      // jl = Jump Label. It jumps to label "endlessLoop" (located in current region - setPalette).
-                                                            // The end of setPalette region and Main module.
+                                                            // The end of helloWorld region and Main module.
