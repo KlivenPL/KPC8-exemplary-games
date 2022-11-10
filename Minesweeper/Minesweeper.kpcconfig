@@ -1,5 +1,5 @@
 {
-    "ClockPeriodInTicks": 5,
+    "ClockPeriodInTicks": 3,
     "KTimers": [
         {
             "TimerName": "Timer1",
