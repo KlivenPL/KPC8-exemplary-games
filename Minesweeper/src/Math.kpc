@@ -26,7 +26,6 @@
        // .debugwrite "DEBUG WRITE XDDDD rA: {rA} $a1: {$a1}"
         set rA $a1
        // .debugwrite "DEBUG WRITE XDDDD rA: {rA} $a1: {$a1}"
-      //  .debugwrite "[{%time%}] ram at 2: {%ram(2)%}, ram at sp: {%ram($sp)%}, ram at 0xF660: {%ram(0xF660)%} {%ram(0xF43E)%} {%ram(0xF43F)%} {%ram(0xF440)%}"
         set rB $a2
         seti rResult 0
 
@@ -115,7 +114,7 @@
         set value $rt
         setloh $rt $rt
         sbramo $rt resultPtr i
-    
+        //nop .debugwrite "[{%time%}] rResult: {rResult} $t1: {$t1}, ROM at 0x1: {%rom(0x1)%}, RAM at $sp: {%ram($sp)%}"
         addi i 1
         jl forLoopiCheck
 

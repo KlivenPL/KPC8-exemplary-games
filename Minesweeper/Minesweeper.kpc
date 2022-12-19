@@ -1,6 +1,5 @@
 *@const
     .setaddress 0x10
-    //.binfile ssPtr 4096 "./Spritesheet/Spritesheet.bin"
     .binfile ssPtr 4096 "./Spritesheet/Spritesheet_no_frames.bin"
 
     .setmoduleaddress 4112

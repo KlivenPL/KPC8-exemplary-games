@@ -137,6 +137,12 @@
 
 *mainGameLoop
     :main
+        lbramoi $t1 $zero Gui.stats.gameOverPtr
+        cmpsubi $t1 0
+        jzfl checkInput
+        jl main
+        
+    :checkInput
         jasl Input.getInputDown.main $ra
         set $a1 $rt
         jasl handleInput.main $ra

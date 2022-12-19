@@ -11,6 +11,7 @@
     .defnum timePtr 0x252 // word
     .defnum scorePtr 0x254 // word
     .defnum flaggedBombsCountPtr 0x256 // byte
+    .defnum gameOverPtr 0x257 // byte
 
 *frontendStats
     .defnum number0SSPtr 16
@@ -22,6 +23,9 @@
     .defnum timeDigitS1Ptr 0xF1DC // 0xF000 + 474
     .defnum timeDigitM0Ptr 0xF1DA // 0xF000 + 476
     .defnum timeDigitM1Ptr 0xF1D9 // 0xF000 + 477
+
+    .defnum finalTextPtr 0xF19C // 0xF000 + 412
+    .defnum finalTextAttribPtr 0xF48E //0xF3C0 + 412/2
     
 *byteToDec
     .defreg value $a1
@@ -164,17 +168,25 @@
 
     .defreg letter $t1
     .defreg i $t2
+    .defreg textPalette $t3
     :logic
+        irrdis // turn off timer, its game over.
+        seti $t1 1
+        sbramoi $t1 $zero stats.gameOverPtr // set game over to true
         setwi letter 0
         setwi i 0
+        setwi textPalette Grid.tileColors.textPalette
 
-    .defnum tilemapPtr 0xF000
     :writeTextLoop
         lbromo letter i textPtr
         jwzl letter return
 
         subi letter 32
-        sbramoi letter i tilemapPtr
+        sbramoi letter i frontendStats.finalTextPtr
+        pushb i $sp
+        srl i i $zero
+        sbramoi textPalette i frontendStats.finalTextAttribPtr
+        popb i $sp
 
         addi i 1
         jl writeTextLoop

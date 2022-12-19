@@ -23,6 +23,8 @@
     .defnum baseBgPtr 0xF000 // pointer to ram background
     .defnum baseBgAttributePtr 0xF3C0 // pointer to ram attribute table
     .defnum baseBgPalettePtr 0xF5E0 // pointer to ram first palette
+    // tood wywla
+
     .defnum tileStructSize 1
 
     .defnum tileDataOffset 0 // byte
@@ -56,6 +58,7 @@
 
     .defnum flagPalette 0x99    .defcolorhex flagColorA "#DE7B52" .defcolorhex flagColorB "#BBBBBB" .defcolorhex flagColorC "#222222"
     .defnum bombPalette 0xAA    .defcolorhex bombColorA "#DE7B52" .defcolorhex bombColorB "#222222" .defcolorhex bombColorC "#7F7F7F"
+    .defnum textPalette 0xBB    .defcolorhex black "#000000"
 
     :main
         nop
@@ -89,6 +92,7 @@
         pushwi bgColor bgPalettePtr     pushwi n8ColorA bgPalettePtr     pushwi n8ColorB bgPalettePtr    pushwi n8ColorC bgPalettePtr
         pushwi bgColor bgPalettePtr     pushwi flagColorA bgPalettePtr   pushwi flagColorB bgPalettePtr  pushwi flagColorC bgPalettePtr
         pushwi bgColor bgPalettePtr     pushwi bombColorA bgPalettePtr   pushwi bombColorB bgPalettePtr  pushwi bombColorC bgPalettePtr
+        pushwi bgColor bgPalettePtr     pushwi black bgPalettePtr        pushwi black bgPalettePtr       pushwi black bgPalettePtr
 
     :clear
         jr $ra
@@ -642,7 +646,7 @@
 
         ori tileData tiles.isBombMask
         sbramoi tileData tilePtr tiles.tileDataOffset
-        // nop .debugwrite "Stawiam bombe na tile o id: {tileIndex}"
+        // nop .debugwrite "Place the bomb at tile id: {tileIndex}"
 
     :checkLeftTop
         pushw tileIndex $sp
