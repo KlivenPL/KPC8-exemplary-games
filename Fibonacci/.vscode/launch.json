@@ -6,11 +6,11 @@
     "configurations": [
         {
             "type": "kpcdbg",
-            "request": "attach",
-            "name": "Debug hello world",
-            "pauseAtEntry": true,
-            "debuggerAddress": "127.0.0.1",
-            "debuggerPort": "32137"
+            "request": "launch",
+            "name": "Debug fibonacci number",
+            "pauseAtEntry": false,
+            "kpc8PlayerPath": "P:\\KPC8\\KPC8\\Player\\bin\\Release\\net6.0-windows\\Player.exe",
+            "sourceFilePath": "${file}"
         }
     ]
 }

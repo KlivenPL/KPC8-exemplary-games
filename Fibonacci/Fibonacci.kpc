@@ -1,0 +1,52 @@
+*@const                                                     
+*@module Fibonacci
+*fibonacci
+    .defnum fibNumber 24
+    :main
+        nop .debugwrite "{%time%} Calculating fibonacci for N = {fibNumber}"
+        seti $a1 fibNumber
+        jasl fib.main $ra
+        nop .debugwrite "{%time%} The result is {$rt}"
+
+    :endlessLoop
+        jl endlessLoop
+    
+*fib
+    .defreg n $a1
+    :main
+        pushw $ra $sp
+        pushw $s1 $sp
+        pushw $s2 $sp
+
+    .defreg nMinus1 $s1 
+    .defreg fibNMinus1 $s2 
+    :logic
+        nop .debugwrite "rec call {$sp}"
+        set nMinus1 n
+        subi nMinus1 1 // initialize nMinus1 and set the CPU flags
+        jzfl retN // if nMinus1 is zero then jump to retN label
+        jnfl retN // if nMinus1 is negative then jump to retN label
+
+        set $a1 nMinus1 // set $a1 parameter to nMinus1
+        jasl fib.main $ra // fib(nMinus1)
+        setw fibNMinus1 $rt // save the result in fibNMinus1 reg.
+
+        subi nMinus1 1 // here nMinus1 becomes nMinus2
+        set $a1 nMinus1 // set $a1 parameter to nMinus2
+        jasl fib.main $ra // fib(nMinus2)
+
+        addw $rt $rt fibNMinus1 // result += fibNMinus1
+        jl return
+
+    :retN
+        setw $rt n // set the result to n
+
+    :return
+        popw $s2 $sp
+        popw $s1 $sp
+        popw $ra $sp
+        jr $ra
+
+
+
+

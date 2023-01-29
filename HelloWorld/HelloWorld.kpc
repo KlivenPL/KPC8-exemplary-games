@@ -3,7 +3,7 @@
     .binfile ssPtr 4096 "./Spritesheet/Spritesheet.bin"     // Load the first 4096 bytes from file ./Spritesheet/Spritesheet.bin and place it in ROM (starting at 0x10 address).
     .asciiz helloWorldPtr "Hello, World!"                   // Encode following string into ASCII, terminate it with \0 symbol and place it in current ROM address (0x10 + 4096 = 0x1010). helloWorldPtr is a compile-time constant that stores the address (0x1010).
 
-*@module Main                                               // Beginning of Main module (could be named arbitrarily, however it must be defined after @const region).
+*@module HelloWorld                                         // Beginning of HelloWorld module (could be named arbitrarily, however it must be defined after @const region).
 
 *setPalette                                                 // The beginning of setPalette region.
     .defnum bgPaletteAddr 0xF5E0                            // Define the compile-time word (16-bits) constant that points to the beginning of background palette address, used by the graphics card.
