@@ -23,9 +23,7 @@
         pushw $t2 $sp
         pushw $t3 $sp
 
-       // .debugwrite "DEBUG WRITE XDDDD rA: {rA} $a1: {$a1}"
         set rA $a1
-       // .debugwrite "DEBUG WRITE XDDDD rA: {rA} $a1: {$a1}"
         set rB $a2
         seti rResult 0
 

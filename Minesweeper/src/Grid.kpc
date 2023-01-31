@@ -23,10 +23,8 @@
     .defnum baseBgPtr 0xF000 // pointer to ram background
     .defnum baseBgAttributePtr 0xF3C0 // pointer to ram attribute table
     .defnum baseBgPalettePtr 0xF5E0 // pointer to ram first palette
-    // tood wywla
 
     .defnum tileStructSize 1
-
     .defnum tileDataOffset 0 // byte
 
     .defnum coveredSSId 160

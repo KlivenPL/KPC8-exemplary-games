@@ -149,12 +149,6 @@
 
         jl main
 
-// *generateBombs
-//     .defnum difficulty $t1
-
-//     :main
-
-
 *handleInput
     .defreg input $a1
     .defreg inputMask $t1
